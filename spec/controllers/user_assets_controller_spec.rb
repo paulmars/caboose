@@ -175,7 +175,7 @@ context "Requesting /assets/new using GET" do
   end
 end
 
-context "Requesting /assets/1;edit using GET" do
+context "Requesting /assets/1/edit using GET" do
   controller_name :user_assets
 
   before(:each) do

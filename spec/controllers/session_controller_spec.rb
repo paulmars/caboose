@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../spec_helper.rb'
 
 context "/session/new GET" do
-  controller_name :session
+  controller_name :sessions
 
   specify "should render new" do
     controller.should_render :new
@@ -10,7 +10,7 @@ context "/session/new GET" do
 end
 
 context "/session POST without remember me" do
-  controller_name :session
+  controller_name :sessions
   before(:each) do
     @user = mock_user
     User.stub!(:authenticate).and_return(@user)
@@ -67,7 +67,7 @@ context "/session POST with remember me" do
 end
 
 context "/session POST when invalid" do
-  controller_name :session
+  controller_name :sessions
   before(:each) do
     @user = mock_user
 
@@ -97,7 +97,7 @@ context "/session POST when invalid" do
 end
 
 context "/session DELETE" do
-  controller_name :session
+  controller_name :sessions
   before(:each) do
     @user = mock_user
 

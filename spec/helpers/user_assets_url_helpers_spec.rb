@@ -21,26 +21,26 @@ context "the generated url helpers for UserAssetsController" do
   end
   
   specify "should return assets path given no arguments" do
-    assets_path().should_eql "/users/joe/assets"
+    assets_path().should eql "/users/joe/assets"
   end
   
   specify "should return assets path given explicit argument" do
-    assets_path(mock_model(User, :to_param => 'barney')).should_eql "/users/barney/assets"
+    assets_path(mock_model(User, :to_param => 'barney')).should eql "/users/barney/assets"
   end
 
   specify "should return asset path" do
-    asset_path(@asset).should_eql "/users/joe/assets/1"
+    asset_path(@asset).should eql "/users/joe/assets/1"
   end
   
   specify "should return edit_asset path" do
-    edit_asset_path(@asset).should_eql "/users/joe/assets/1;edit"
+    edit_asset_path(@asset).should eql "/users/joe/assets/1/edit"
   end
 
   specify "should return new_asset path" do
-    new_asset_path().should_eql "/users/joe/assets/new"
+    new_asset_path().should eql "/users/joe/assets/new"
   end
 
   specify "should return asset_attachable path" do
-    asset_attachable_path(@user).should_eql "/users/joe"
+    asset_attachable_path(@user).should eql "/users/joe"
   end
 end

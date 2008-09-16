@@ -61,22 +61,22 @@ context "A new user" do
   
   specify "should require login" do
     lambda{ u = create_user(:login => nil) ; u.should_have_at_least(1).errors_on(:login) }.
-          should_not_change(User,:count)
+          should_not change(User,:count)
   end
   
   specify "should require password" do
     lambda{ u = create_user(:password => nil) ; u.should_have_at_least(1).errors_on(:password)}.
-          should_not_change(User,:count)
+          should_not change(User,:count)
   end
 
   specify "should require password confirmation" do
     lambda{ u = create_user(:password_confirmation => nil) ; u.should_have_at_least(1).errors_on(:password_confirmation)}.
-          should_not_change(User,:count)
+          should_not change(User,:count)
   end
 
   specify "should require email" do
     lambda{ u = create_user(:email => nil) ; u.should_have_at_least(1).errors_on(:email)}.
-          should_not_change(User,:count)
+          should_not change(User,:count)
   end
 
   def create_user(options = {})

@@ -15,8 +15,8 @@ context "Routes for the UsersController should map" do
     route_for(:controller => "users", :action => "show", :id => 1).should == "/users/1"
   end
   
-  specify "{ :controller => 'users', :action => 'edit', :id => 1 } to /users/1;edit" do
-    route_for(:controller => "users", :action => "edit", :id => 1).should == "/users/1;edit"
+  specify "{ :controller => 'users', :action => 'edit', :id => 1 } to /users/1/edit" do
+    route_for(:controller => "users", :action => "edit", :id => 1).should == "/users/1/edit"
   end
   
   specify "{ :controller => 'users', :action => 'update', :id => 1} to /users/1" do
@@ -192,7 +192,7 @@ context "Requesting /users/new using GET" do
   end
 end
 
-context "Requesting /users/1;edit using GET" do
+context "Requesting /users/1/edit using GET" do
   controller_name :users
 
   before(:each) do

@@ -56,7 +56,7 @@ public
     @asset = assets.build
   end
 
-  # GET /assets/1;edit
+  # GET /assets/1/  edit
   def edit
   end
 

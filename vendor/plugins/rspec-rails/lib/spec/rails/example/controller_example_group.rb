@@ -140,7 +140,7 @@ module Spec
         # the correct route for a given set of options.
         # == Example
         #   route_for(:controller => 'registrations', :action => 'edit', :id => 1)
-        #     => '/registrations/1;edit'
+        #     => '/registrations/1/edit'
         def route_for(options)
           ensure_that_routes_are_loaded
           ActionController::Routing::Routes.generate(options)
@@ -149,7 +149,7 @@ module Spec
         # Uses ActionController::Routing::Routes to parse
         # an incoming path so the parameters it generates can be checked
         # == Example
-        #   params_from(:get, '/registrations/1;edit')
+        #   params_from(:get, '/registrations/1/edit')
         #     => :controller => 'registrations', :action => 'edit', :id => 1
         def params_from(method, path)
           ensure_that_routes_are_loaded
