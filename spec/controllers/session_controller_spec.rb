@@ -4,8 +4,8 @@ context "/session/new GET" do
   controller_name :sessions
 
   specify "should render new" do
-    controller.should_render :new
     get :new
+    response.should render_template('new')
   end
 end
 
@@ -29,11 +29,11 @@ context "/session POST without remember me" do
 
   specify "should not remember me" do
     post :create
-    response.cookies["auth_token"].should_be_nil
+    response.cookies["auth_token"].should be_nil
   end
 
   specify "should redirect to root" do
-    controller.should_redirect_to 'http://test.host/'
+    controller.should redirect_to('http://test.host/')
     post :create
   end
 end
@@ -87,12 +87,12 @@ context "/session POST when invalid" do
 
   specify "should not remember me" do
     post :create
-    response.cookies["auth_token"].should_be_nil
+    response.cookies["auth_token"].should be_nil
   end
 
   specify "should render new" do
-    controller.should_render :action => 'new'
     post :create
+    response.should render_template('new')
   end
 end
 
@@ -133,7 +133,7 @@ context "/session DELETE" do
   end
 
   specify "should redirect to root" do
-    controller.should_redirect_to 'http://test.host/'
+    controller.should redirect_to('http://test.host/')
     delete :destroy
   end
 end

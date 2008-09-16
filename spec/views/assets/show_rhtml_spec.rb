@@ -32,12 +32,12 @@ context "/assets/show.rhtml" do
   specify "should render attributes in <p>" do
     render "/assets/show.rhtml"
 
-    # response.should_have_tag('p', :content => "MyString")
-    # response.should_have_tag('p', :content => "1")
-    # response.should_have_tag('p', :content => "1")
-    # response.should_have_tag('p', :content => "MyString")
-    # response.should_have_tag('p', :content => "1")
-    # response.should_have_tag('p', :content => "MyString")
+    # response.should have_tag('p', :content => "MyString")
+    # response.should have_tag('p', :content => "1")
+    # response.should have_tag('p', :content => "1")
+    # response.should have_tag('p', :content => "MyString")
+    # response.should have_tag('p', :content => "1")
+    # response.should have_tag('p', :content => "MyString")
   end
 end
 

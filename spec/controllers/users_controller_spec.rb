@@ -46,8 +46,8 @@ context "Requesting /users using GET" do
   end
 
   specify "should render index.rhtml" do
-    controller.should_render :index
     do_get
+    response.should render_template('index')
   end
   
   specify "should find all users" do
@@ -109,8 +109,8 @@ context "Requesting /users/1 using GET" do
   end
   
   specify "should render show.rhtml" do
-    controller.should_render :show
     do_get
+    response.should render_template('show')
   end
   
   specify "should find the user requested" do
@@ -172,8 +172,8 @@ context "Requesting /users/new using GET" do
   end
   
   specify "should render new.rhtml" do
-    controller.should_render :new
     do_get
+    response.should render_template('new')
   end
   
   specify "should create an new user" do
@@ -218,7 +218,7 @@ context "Requesting /users/1/edit using GET" do
   
   specify "should render edit.rhtml" do
     do_get
-    controller.should_render :edit
+    response.should render_template('edit')
   end
   
   specify "should find the user requested" do

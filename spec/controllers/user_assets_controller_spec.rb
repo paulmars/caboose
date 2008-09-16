@@ -22,8 +22,8 @@ context "Requesting /assets using GET" do
   end
 
   specify "should render index.rhtml" do
-    controller.should_render :index
     do_get
+    response.should render_template('assets/index')
   end
   
   specify "should find all assets" do
@@ -90,8 +90,8 @@ context "Requesting /assets/1 using GET" do
   end
   
   specify "should render show.rhtml" do
-    controller.should_render :show
     do_get
+    response.should render_template('assets/show')
   end
   
   specify "should find the asset requested" do
@@ -156,8 +156,8 @@ context "Requesting /assets/new using GET" do
   end
   
   specify "should render new.rhtml" do
-    controller.should_render :new
     do_get
+    response.should render_template('assets/new')
   end
   
   specify "should create an new asset" do
@@ -198,7 +198,7 @@ context "Requesting /assets/1/edit using GET" do
   
   specify "should render edit.rhtml" do
     do_get
-    controller.should_render :edit
+    response.should render_template('assets/edit')
   end
   
   specify "should find the asset requested" do

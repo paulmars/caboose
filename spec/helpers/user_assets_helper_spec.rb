@@ -8,6 +8,6 @@ context "the UserAssetsHelper" do
   end
   
   specify "should return user login name" do
-    attachable_name().should eql "JoeLogin"
+    attachable_name().should eql("JoeLogin")
   end
 end
