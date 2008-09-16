@@ -1,7 +1,7 @@
 class UserAssetsController < AssetsController
 
   # These are resource_fu methods.
-  delegate_resources_helpers :assets, :to => :user_assets
+  delegate_resources_helpers :assets, :to => :user_user_assets, :controller => :user_assets
   delegate_url_helpers :asset_attachable, :to => :user
 
   # Keep it DRY - we only need one set of templates

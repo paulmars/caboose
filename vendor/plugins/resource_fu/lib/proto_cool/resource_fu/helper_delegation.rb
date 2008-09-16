@@ -12,7 +12,10 @@ module ProtoCool::ResourceFu::HelperDelegation
     delegated = delegated.to_s
     delegated_singular = delegated.singularize
     
-    ActionController::Routing::Routes.named_routes.select {|name,route| route.requirements[:controller] == target}.each do |name, route|
+    controller = options[:controller].to_s
+    controller ||= target
+    
+    ActionController::Routing::Routes.named_routes.select {|name,route| route.requirements[:controller] == controller}.each do |name, route|
       if name.to_s =~ /#{target}/
         delegate_url_helpers name.to_s.gsub(/#{target}/, delegated), :to => name
       elsif name.to_s =~ /#{target_singular}/
