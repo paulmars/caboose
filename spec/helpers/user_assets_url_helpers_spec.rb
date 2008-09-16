@@ -21,7 +21,7 @@ context "the generated url helpers for UserAssetsController" do
   end
   
   specify "should return assets path given no arguments" do
-    assets_path().should eql "/users/joe/assets"
+    assets_path.should eql("/users/joe/assets")
   end
   
   specify "should return assets path given explicit argument" do
