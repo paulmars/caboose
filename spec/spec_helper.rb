@@ -4,6 +4,8 @@ ENV["RAILS_ENV"] = "test"
 require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
 require 'spec'
 require 'spec/rails'
+require File.dirname(__FILE__) + "/../lib/rspec_extensions.rb"
+
 
 Spec::Runner.configure do |config|
   # If you're not using ActiveRecord you should remove these
@@ -13,6 +15,21 @@ Spec::Runner.configure do |config|
   config.use_instantiated_fixtures  = false
   config.fixture_path = RAILS_ROOT + '/spec/fixtures/'
 
+  def controller
+    @controller
+  end
+
+  def mock_user
+    user = mock_model(User, 
+      :id => 1, 
+      :tz => TimeZone.new('USA/PDT'),
+      :login => 'flappy',
+      :email => 'flappy@email.com',
+      :password => '', :password_confirmation => '',
+      :time_zone => 'USA/PDT'
+    )
+  end
+  
   # == Fixtures
   #
   # You can declare fixtures for each example_group like this:
