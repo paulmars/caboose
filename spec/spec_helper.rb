@@ -1,45 +1,47 @@
 # This file is copied to ~/spec when you run 'ruby script/generate rspec'
 # from the project root directory.
-ENV["RAILS_ENV"] ||= "test"
+ENV["RAILS_ENV"] = "test"
 require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
+require 'spec'
 require 'spec/rails'
-require 'tzinfo'
 
-require 'rspec_extensions' # custom in lib/
+Spec::Runner.configure do |config|
+  # If you're not using ActiveRecord you should remove these
+  # lines, delete config/database.yml and disable :active_record
+  # in your config/boot.rb
+  config.use_transactional_fixtures = true
+  config.use_instantiated_fixtures  = false
+  config.fixture_path = RAILS_ROOT + '/spec/fixtures/'
 
-# Even if you're using RSpec, RSpec on Rails is reusing some of the
-# Rails-specific extensions for fixtures and stubbed requests, response
-# and other things (via RSpec's inherit mechanism). These extensions are 
-# tightly coupled to Test::Unit in Rails, which is why you're seeing it here.
-module Spec
-  module Rails
-    module Runner
-      class HelperEvalContext
-        # so that helpers which call controller() work?
-        def controller
-          @controller
-        end
-      end
-      class EvalContext < Test::Unit::TestCase
-        self.use_transactional_fixtures = true
-        self.use_instantiated_fixtures  = false
-        self.fixture_path = RAILS_ROOT + '/spec/fixtures'
-
-        # You can set up your global fixtures here, or you
-        # can do it in individual contexts using "fixtures :table_a, table_b".
-        #
-        #self.global_fixtures = :table_a, :table_b
-        def mock_user
-          user = mock_model(User, 
-            :id => 1, 
-            :tz => TimeZone.new('USA/PDT'),
-            :login => 'flappy',
-            :email => 'flappy@email.com',
-            :password => '', :password_confirmation => '',
-            :time_zone => 'USA/PDT'
-          )
-        end
-      end
-    end
-  end
+  # == Fixtures
+  #
+  # You can declare fixtures for each example_group like this:
+  #   describe "...." do
+  #     fixtures :table_a, :table_b
+  #
+  # Alternatively, if you prefer to declare them only once, you can
+  # do so right here. Just uncomment the next line and replace the fixture
+  # names with your fixtures.
+  #
+  # config.global_fixtures = :table_a, :table_b
+  #
+  # If you declare global fixtures, be aware that they will be declared
+  # for all of your examples, even those that don't use them.
+  #
+  # You can also declare which fixtures to use (for example fixtures for test/fixtures):
+  #
+  # config.fixture_path = RAILS_ROOT + '/spec/fixtures/'
+  #
+  # == Mock Framework
+  #
+  # RSpec uses it's own mocking framework by default. If you prefer to
+  # use mocha, flexmock or RR, uncomment the appropriate line:
+  #
+  # config.mock_with :mocha
+  # config.mock_with :flexmock
+  # config.mock_with :rr
+  #
+  # == Notes
+  # 
+  # For more information take a look at Spec::Example::Configuration and Spec::Runner
 end
