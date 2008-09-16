@@ -1,0 +1,20 @@
+development:
+  adapter: mysql
+  encoding: utf8
+  database: caboose_development
+  username: root
+  password: 
+
+test:
+  adapter: mysql
+  encoding: utf8
+  database: caboose_test
+  username: root
+  password:
+
+production:
+  adapter: mysql
+  encoding: utf8
+  database: caboose_production
+  username: root
+  password: 
