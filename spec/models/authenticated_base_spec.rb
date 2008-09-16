@@ -10,7 +10,7 @@ context "A User abstract class" do
 end
 
 context "An existing user" do
-  setup do
+  before(:each) do
     @user = User.create!(:login => 'quentin', :password => 'monkey', :password_confirmation => 'monkey', :email => 'test@foo.bar')
     @store.stub!(:buyers).and_return(User)
   end
@@ -27,26 +27,26 @@ context "An existing user" do
   
   specify "should remember token" do
     @user.should_not_be_remember_token
-    lambda{ @user.remember_me }.should_change( @user, :remember_token ).from(nil)
+    lambda{ @user.remember_me }.should change( @user, :remember_token ).from(nil)
     @user.remember_token_expires_at.should_not_be_nil
     @user.should_be_remember_token
   end
   
   specify "should increment hit counter" do
-    lambda{ @user.remember_me }.should_change( @user, :visits_count ).from(0).to(1)
+    lambda{ @user.remember_me }.should change( @user, :visits_count ).from(0).to(1)
   end
   
   specify "should forget token" do
-    lambda{ @user.remember_me }.should_change( @user, :remember_token ).from(nil)
+    lambda{ @user.remember_me }.should change( @user, :remember_token ).from(nil)
     @user.should_be_remember_token
 
-    lambda{ @user.forget_me   }.should_change( @user, :remember_token ).to(nil)
+    lambda{ @user.forget_me   }.should change( @user, :remember_token ).to(nil)
     @user.should_not_be_remember_token
   end
 
   specify "should be remembered for a period" do
     before = 1.week.from_now.utc
-    lambda{ @user.remember_me_for 1.week }.should_change(@user, :remember_token).from(nil)
+    lambda{ @user.remember_me_for 1.week }.should change(@user, :remember_token).from(nil)
     after = 1.week.from_now.utc
     @user.remember_token_expires_at.should_be_between(before,after)
   end
@@ -56,7 +56,7 @@ end
 context "A new user" do
 
   specify "should create" do
-    lambda{ user = create_user ; user.should_not_be_new_record }.should_change(User,:count).by(1)
+    lambda{ user = create_user ; user.should_not_be_new_record }.should change(User,:count).by(1)
   end
   
   specify "should require login" do

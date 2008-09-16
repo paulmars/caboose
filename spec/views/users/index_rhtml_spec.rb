@@ -3,7 +3,7 @@ require File.dirname(__FILE__) + '/../../spec_helper'
 context "/users/index.rhtml" do
   include UsersHelper
   
-  setup do
+  before(:each) do
     user_98 = mock_model(User, :id => 98, :login => 'joe')
     user_99 = mock_model(User, :id => 99, :login => 'mary')
 

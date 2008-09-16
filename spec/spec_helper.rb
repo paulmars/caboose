@@ -4,6 +4,9 @@ ENV["RAILS_ENV"] = "test"
 require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
 require 'spec'
 require 'spec/rails'
+require 'ruby-debug'
+# include Spec
+include Spec::Rails::Mocks
 require File.dirname(__FILE__) + "/../lib/rspec_extensions.rb"
 
 

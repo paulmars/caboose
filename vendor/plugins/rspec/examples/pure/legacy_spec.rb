@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/spec_helper'
 context "A legacy spec" do
-  setup do
+  before(:each) do
   end
   
   specify "should work fine" do

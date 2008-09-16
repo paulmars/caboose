@@ -3,7 +3,7 @@ require File.dirname(__FILE__) + '/../../spec_helper'
 context "/assets/show.rhtml" do
   include AssetsHelper
   
-  setup do
+  before(:each) do
     @asset = mock_model(Asset, 
       :to_param => '99',
       :public_filename => '/foo.jpg',

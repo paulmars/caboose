@@ -3,7 +3,7 @@ require File.dirname(__FILE__) + '/../../spec_helper'
 context "/users/edit.rhtml" do
   include UsersHelper
   
-  setup do
+  before(:each) do
     @errors = mock("errors")
     @errors.stub!(:count).and_return(0)
 

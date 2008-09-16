@@ -3,7 +3,7 @@ require File.dirname(__FILE__) + '/../../spec_helper'
 context "/users/show.rhtml" do
   include UsersHelper
   
-  setup do
+  before(:each) do
     @user = mock_user
 
     assigns[:user] = @user

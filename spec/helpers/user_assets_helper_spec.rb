@@ -3,7 +3,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
 context "the UserAssetsHelper" do
   helper_name :user_assets
 
-  setup do
+  before(:each) do
     @attachable = mock_model(User, :login => 'JoeLogin')
   end
   

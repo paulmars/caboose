@@ -3,7 +3,7 @@ require File.dirname(__FILE__) + '/../../spec_helper'
 context "/assets/index.rhtml" do
   include AssetsHelper
   
-  setup do
+  before(:each) do
     asset_98 = mock_model(Asset, :to_param => '98', :public_filename => '/foo/bar.jpg')
     asset_98.stub!(:to_param).and_return("98")
     asset_98.should_receive(:width).and_return("1")

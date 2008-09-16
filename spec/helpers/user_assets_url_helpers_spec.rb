@@ -7,7 +7,7 @@ context "the generated url helpers for UserAssetsController" do
   # those methods up inside setup().
   include UserAssetsController.master_helper_module
 
-  setup do
+  before(:each) do
     # url helper inferences rely on a correctly named instance variable
     # in the controller
     @user = mock_model(User, :to_param => 'joe')

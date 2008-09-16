@@ -31,7 +31,7 @@ end
 context "Requesting /users using GET" do
   controller_name :users
 
-  setup do
+  before(:each) do
     @user = mock_model(User)
     User.stub!(:find).and_return(@user)
   end
@@ -64,7 +64,7 @@ end
 context "Requesting /users.xml using GET" do
   controller_name :users
 
-  setup do
+  before(:each) do
     @user = mock_model(User, :to_xml => "XML")
     User.stub!(:find).and_return(@user)
   end
@@ -94,7 +94,7 @@ end
 context "Requesting /users/1 using GET" do
   controller_name :users
 
-  setup do
+  before(:each) do
     @user = mock_model(User)
     User.stub!(:find_by_param).and_return(@user)
   end
@@ -127,7 +127,7 @@ end
 context "Requesting /users/1.xml using GET" do
   controller_name :users
 
-  setup do
+  before(:each) do
     @user = mock_model(User, :to_xml => "XML")
     User.stub!(:find_by_param).and_return(@user)
   end
@@ -157,7 +157,7 @@ end
 context "Requesting /users/new using GET" do
   controller_name :users
 
-  setup do
+  before(:each) do
     @user = mock_model(User)
     User.stub!(:new).and_return(@user)
   end
@@ -195,7 +195,7 @@ end
 context "Requesting /users/1;edit using GET" do
   controller_name :users
 
-  setup do
+  before(:each) do
     @user = mock_model(User, :tz => nil)
     User.stub!(:find_by_param).and_return(@user)
     controller.stub!(:current_user).and_return @user
@@ -235,7 +235,7 @@ end
 context "Requesting /users using POST" do
   controller_name :users
 
-  setup do
+  before(:each) do
     @user = mock_model(User, :to_param => "1", :save => true)
     User.stub!(:new).and_return(@user)
   end
@@ -258,7 +258,7 @@ end
 context "Requesting /users/1 using PUT" do
   controller_name :users
 
-  setup do
+  before(:each) do
     @user = mock_model(User, :to_param => "1", :update_attributes => true, :tz => nil)
     User.stub!(:find_by_param).and_return(@user)
     
@@ -295,7 +295,7 @@ end
 context "Requesting /users/1 using DELETE" do
   controller_name :users
 
-  setup do
+  before(:each) do
     @user = mock_model(User, :destroy => true, :tz => nil)
     User.stub!(:find_by_param).and_return(@user)
     controller.stub!(:current_user).and_return @user

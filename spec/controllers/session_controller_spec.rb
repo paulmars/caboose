@@ -11,7 +11,7 @@ end
 
 context "/session POST without remember me" do
   controller_name :session
-  setup do
+  before(:each) do
     @user = mock_user
     User.stub!(:authenticate).and_return(@user)
     # controller.stub!(:logged_in?).and_return(true)
@@ -40,7 +40,7 @@ end
 
 context "/session POST with remember me" do
   controller_name :session
-  setup do
+  before(:each) do
     @user = mock_user
 
     @ccookies = mock('cookies')
@@ -68,7 +68,7 @@ end
 
 context "/session POST when invalid" do
   controller_name :session
-  setup do
+  before(:each) do
     @user = mock_user
 
     controller.stub!(:logged_in?).and_return(false, false)
@@ -98,7 +98,7 @@ end
 
 context "/session DELETE" do
   controller_name :session
-  setup do
+  before(:each) do
     @user = mock_user
 
     @ccookies = mock('cookies')

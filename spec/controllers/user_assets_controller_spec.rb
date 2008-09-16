@@ -3,7 +3,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
 context "Requesting /assets using GET" do
   controller_name :user_assets
 
-  setup do
+  before(:each) do
     @asset = mock_model(Asset)
     @assets = mock('Assets Association')
     @assets_array = [@asset]
@@ -39,7 +39,7 @@ end
 context "Requesting /assets.xml using GET" do
   controller_name :user_assets
 
-  setup do
+  before(:each) do
     @asset = mock_model(Asset, :to_xml => "XML")
     @assets = mock('Assets Association')
     @assets_array = [@asset]
@@ -72,7 +72,7 @@ end
 context "Requesting /assets/1 using GET" do
   controller_name :user_assets
 
-  setup do
+  before(:each) do
     @asset = mock_model(Asset)
     Asset.stub!(:find).and_return(@asset)
     @assets = mock('Assets Association')
@@ -107,7 +107,7 @@ end
 context "Requesting /assets/1.xml using GET" do
   controller_name :user_assets
 
-  setup do
+  before(:each) do
     @asset = mock_model(Asset, :to_xml => "XML")
     Asset.stub!(:find).and_return(@asset)
     @assets = mock('Assets Association')
@@ -139,7 +139,7 @@ end
 context "Requesting /assets/new using GET" do
   controller_name :user_assets
 
-  setup do
+  before(:each) do
     @asset = mock_model(Asset)
     @assets = mock('Assets Association')
     @assets.should_receive(:build).and_return(@asset)
@@ -178,7 +178,7 @@ end
 context "Requesting /assets/1;edit using GET" do
   controller_name :user_assets
 
-  setup do
+  before(:each) do
     @asset = mock_model(Asset)
     Asset.stub!(:find).and_return(@asset)
     @assets = mock('Assets Association')
@@ -214,7 +214,7 @@ end
 context "Requesting /assets using POST" do
   controller_name :user_assets
 
-  setup do
+  before(:each) do
     @asset = mock_model(Asset, :to_param => "1", :save => true)
     @assets = mock('Assets Association')
     @assets.stub!(:build).and_return @asset
@@ -239,7 +239,7 @@ end
 context "Requesting /assets/1 using PUT" do
   controller_name :user_assets
 
-  setup do
+  before(:each) do
     @asset = mock_model(Asset, :to_param => "1", :update_attributes => true)
     Asset.stub!(:find).and_return(@asset)
     @assets = mock('Assets Association')
@@ -277,7 +277,7 @@ end
 context "Requesting /assets/1 using DELETE" do
   controller_name :user_assets
 
-  setup do
+  before(:each) do
     @asset = mock_model(Asset, :to_param => "1", :destroy => true)
     Asset.stub!(:find).and_return(@asset)
     @assets = mock('Assets Association')
