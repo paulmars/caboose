@@ -39,7 +39,7 @@ context "/session POST without remember me" do
 end
 
 context "/session POST with remember me" do
-  controller_name :session
+  controller_name :sessions
   before(:each) do
     @user = mock_user
 
