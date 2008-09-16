@@ -14,7 +14,7 @@ context "/users/new.rhtml" do
 
   specify "should render new form" do
     render "/users/new.rhtml"
-    response.should_have_tag 'form', :attributes =>{:action => users_path, :method => 'post'}
+    response.should have_tag( 'form', :attributes =>{:action => users_path, :method => 'post'})
 
   end
 end

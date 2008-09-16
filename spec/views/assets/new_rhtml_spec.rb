@@ -36,9 +36,9 @@ context "/assets/new.rhtml" do
 
   specify "should render new form" do
     render "/assets/new.rhtml"
-    response.should_have_tag 'h1', :content => /ATTACHABLE_NAME/
-    response.should_have_tag 'form', :attributes =>{:action => 'ASSETS_PATH', :method => 'post'}
-    response.should_have_tag 'input', :attributes =>{:name => 'asset[uploaded_data]'}
+    response.should have_tag( 'h1', :content => /ATTACHABLE_NAME/)
+    response.should have_tag( 'form', :attributes =>{:action => 'ASSETS_PATH', :method => 'post'})
+    response.should have_tag( 'input', :attributes =>{:name => 'asset[uploaded_data]'})
   end
 end
 

@@ -46,12 +46,12 @@ context "/assets/index.rhtml" do
   specify "should render list of assets" do
     render "/assets/index.rhtml"
 
-    response.should_have_tag 'td', :content => "MyString"
-    response.should_have_tag 'td', :content => "1"
-    response.should_have_tag 'td', :content => "1"
-    response.should_have_tag 'td', :content => "MyString"
-    response.should_have_tag 'td', :content => "1"
-    response.should_have_tag 'td', :content => "MyString"
+    response.should have_tag( 'td', :content => "MyString")
+    response.should have_tag( 'td', :content => "1")
+    response.should have_tag( 'td', :content => "1")
+    response.should have_tag( 'td', :content => "MyString")
+    response.should have_tag( 'td', :content => "1")
+    response.should have_tag( 'td', :content => "MyString")
   end
 end
 

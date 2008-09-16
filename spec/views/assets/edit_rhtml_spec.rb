@@ -33,13 +33,13 @@ context "/assets/edit.rhtml" do
 
   specify "should render edit form" do
     render "/assets/edit.rhtml"
-    response.should_have_tag 'form', :attributes =>{:action => 'ASSET_PATH', :method => 'post'}
+    response.should have_tag('form', :attributes =>{:action => 'ASSET_PATH', :method => 'post'})
 
-    response.should_have_tag 'input', :attributes =>{:name => 'asset[filename]'}
-    response.should_have_tag 'input', :attributes =>{:name => 'asset[width]'}
-    response.should_have_tag 'input', :attributes =>{:name => 'asset[height]'}
-    response.should_have_tag 'input', :attributes =>{:name => 'asset[content_type]'}
-    response.should_have_tag 'input', :attributes =>{:name => 'asset[size]'}
-    response.should_have_tag 'input', :attributes =>{:name => 'asset[attachable_type]'}
+    response.should have_tag('input', :attributes =>{:name => 'asset[filename]'})
+    response.should have_tag('input', :attributes =>{:name => 'asset[width]'})
+    response.should have_tag('input', :attributes =>{:name => 'asset[height]'})
+    response.should have_tag('input', :attributes =>{:name => 'asset[content_type]'})
+    response.should have_tag('input', :attributes =>{:name => 'asset[size]'})
+    response.should have_tag('input', :attributes =>{:name => 'asset[attachable_type]'})
   end
 end

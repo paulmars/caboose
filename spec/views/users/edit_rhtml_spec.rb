@@ -18,7 +18,7 @@ context "/users/edit.rhtml" do
 
   specify "should render edit form" do
     render "/users/edit.rhtml"
-    response.should have_tag 'form', :attributes =>{:action => user_path(@user), :method => 'post'}
+    response.should have_tag('form', :attributes =>{:action => user_path(@user), :method => 'post'})
 
   end
 end
