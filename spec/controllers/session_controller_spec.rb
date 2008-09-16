@@ -33,8 +33,8 @@ context "/session POST without remember me" do
   end
 
   specify "should redirect to root" do
-    controller.should redirect_to('http://test.host/')
     post :create
+    response.should redirect_to('http://test.host/')
   end
 end
 
@@ -133,7 +133,7 @@ context "/session DELETE" do
   end
 
   specify "should redirect to root" do
-    controller.should redirect_to('http://test.host/')
     delete :destroy
+    response.should redirect_to('http://test.host/')
   end
 end
