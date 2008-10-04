@@ -23,16 +23,14 @@ Spec::Runner.configure do |config|
   end
 
   def mock_user
-    user = mock_model(User, 
-      :id => 1, 
-      :tz => TimeZone.new('USA/PDT'),
+    user = mock_model(User,
+      :id => 1,
       :login => 'flappy',
       :email => 'flappy@email.com',
-      :password => '', :password_confirmation => '',
-      :time_zone => 'USA/PDT'
+      :password => '', :password_confirmation => ''
     )
   end
-  
+
   # == Fixtures
   #
   # You can declare fixtures for each example_group like this:
@@ -62,6 +60,6 @@ Spec::Runner.configure do |config|
   # config.mock_with :rr
   #
   # == Notes
-  # 
+  #
   # For more information take a look at Spec::Example::Configuration and Spec::Runner
 end

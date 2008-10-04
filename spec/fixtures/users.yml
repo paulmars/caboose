@@ -1,5 +1,8 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 one:
   id: 1
+  login: paul
+  crypted_password: a53b1675cea5305d186bc667f7b62fca3f4db05b
+  salt: b503d20b42de6c2a94ab468aea6e293b11185e24
 two:
   id: 2

@@ -196,7 +196,7 @@ context "Requesting /users/1/edit using GET" do
   controller_name :users
 
   before(:each) do
-    @user = mock_model(User, :tz => nil)
+    @user = mock_model(User)
     User.stub!(:find_by_param).and_return(@user)
     controller.stub!(:current_user).and_return @user
   end
@@ -259,7 +259,7 @@ context "Requesting /users/1 using PUT" do
   controller_name :users
 
   before(:each) do
-    @user = mock_model(User, :to_param => "1", :update_attributes => true, :tz => nil)
+    @user = mock_model(User, :to_param => "1", :update_attributes => true)
     User.stub!(:find_by_param).and_return(@user)
     
     controller.stub!(:current_user).and_return(@user)
@@ -296,7 +296,7 @@ context "Requesting /users/1 using DELETE" do
   controller_name :users
 
   before(:each) do
-    @user = mock_model(User, :destroy => true, :tz => nil)
+    @user = mock_model(User, :destroy => true)
     User.stub!(:find_by_param).and_return(@user)
     controller.stub!(:current_user).and_return @user
   end

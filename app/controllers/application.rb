@@ -13,7 +13,6 @@ class ApplicationController < ActionController::Base
   # If you want timezones per-user, uncomment this:
   #before_filter :login_required
 
-  around_filter :set_timezone
   around_filter :catch_errors
   
   helper :all # include all helpers, all the time
@@ -33,12 +32,6 @@ class ApplicationController < ActionController::Base
     end
 
   private
-
-    def set_timezone
-      TzTime.zone = logged_in? ? current_user.tz : TimeZone.new('Etc/UTC')
-        yield
-      TzTime.reset!
-    end
 
     def catch_errors
       begin

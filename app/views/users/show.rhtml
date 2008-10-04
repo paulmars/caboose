@@ -1,7 +1,6 @@
 <h1><%=h @user.login %></h1>
 
 <p>Email: <%=h @user.email %></p>
-<p>Timezone: <%=h @user.time_zone %></p>
 
 <%= link_to 'Assets', assets_path() %> |
 <%= link_to 'Edit', edit_user_path(@user) %> |

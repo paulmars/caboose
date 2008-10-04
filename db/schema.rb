@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 3) do
+ActiveRecord::Schema.define(:version => 20081004012912) do
 
   create_table "assets", :force => true do |t|
     t.string   "filename"
@@ -36,7 +36,6 @@ ActiveRecord::Schema.define(:version => 3) do
     t.string   "remember_token"
     t.datetime "remember_token_expires_at"
     t.integer  "visits_count",                            :default => 0
-    t.string   "time_zone",                               :default => "Etc/UTC"
     t.string   "permalink"
   end
 
