@@ -1,1 +1,0 @@
-class Caboose; end
