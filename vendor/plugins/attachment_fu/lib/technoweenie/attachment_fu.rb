@@ -259,6 +259,73 @@ module Technoweenie # :nodoc:
       def content_type=(new_type)
         write_attribute :content_type, new_type.to_s.strip
       end
+      
+      def height_specified?(size)
+        # not specified:"120>"  COMPARED specified:"120x120>"
+        !attachment_options[:thumbnails][size].split('x')[1].nil?
+      end
+
+      def width_specified?(size)
+        # specified: "120x120>" OR "120>"
+        !attachment_options[:thumbnails][size].split(/[x>]/)[0]
+      end
+
+      def height_restricted?(size)
+        if height_specified?(size)
+          # if square suggetion
+          if width_suggested(size) == height_suggested(size)
+            self.height > self.width
+          else # if not square suggested
+            # not implemented
+            true
+          end
+        else
+          false
+        end
+      end
+
+      def width_suggested(size)
+        attachment_options[:thumbnails][size].split(/[>x]/)[0].to_i
+      end
+
+      def height_suggested(size)
+        attachment_options[:thumbnails][size].split('x')[1].to_i
+      end
+
+      def width_scaled(size)
+        (width_suggested(size).to_f)/width
+      end
+
+      def height_scaled(size)
+        (height_suggested(size).to_f)/height
+      end
+
+      def height_guess(size = nil)
+        return self.height unless size
+
+        if height_specified?(size) and height_restricted?(size)
+          guess = height_suggested(size)            # should be scaled by height
+        else
+          guess = width_scaled(size) * self.height  # scale by other parameter
+        end
+
+        # only use guess if guess is smaller than origal size
+        # good for small images
+        guess < self.height ? guess : self.height
+      end
+
+      def width_guess(size = nil)
+        return self.width unless size
+        if height_restricted?(size)
+          guess =  height_scaled(size) * self.width
+        else
+          guess =  width_suggested(size)
+        end
+
+        # only use guess if guess is smaller than origal size
+        # good for small images
+        guess < self.width ? guess : self.width
+      end
 
       # Sanitizes a filename.
       def filename=(new_name)
