@@ -23,7 +23,7 @@ class Asset < ActiveRecord::Base
   has_attachment :storage => :file_system,
     :thumbnails => { :bigthumb => '400>', :thumb => '120>', :tiny => '50>' },
     :max_size => 5.megabytes,
-    :path_prefix => "public/image_assets"
+    :path_prefix => "public/assets"
 
 
 end
