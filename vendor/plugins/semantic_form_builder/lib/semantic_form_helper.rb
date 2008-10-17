@@ -1,5 +1,5 @@
 module SemanticFormHelper
-      
+
   def wrapping(type, field_name, label, field, options = {})
     help = %Q{<span class="help">#{options[:help]}</span>} if options[:help]
     to_return = []
@@ -7,7 +7,7 @@ module SemanticFormHelper
     to_return << %Q{<label for="#{field_name}">#{label}#{help}</label>} unless ["radio","check", "submit"].include?(type)
     to_return << %Q{<div class="input">}
     to_return << field
-    to_return << %Q{<label for="#{field_name}">#{label}</label>} if ["radio","check"].include?(type)    
+    to_return << %Q{<label for="#{field_name}">#{label}</label>} if ["radio","check"].include?(type)
     to_return << %Q{</div></div>}
   end
 
@@ -16,7 +16,7 @@ module SemanticFormHelper
     to_return = []
     to_return << %Q{<div class="#{type}-fields #{options[:class]}">}
     to_return << %Q{<label for="#{field_name}">#{label}#{help}</label>}
-    to_return << %Q{<div class="input">}    
+    to_return << %Q{<div class="input">}
     to_return << fields.join
     to_return << %Q{</div></div>}
   end
@@ -43,7 +43,16 @@ module SemanticFormHelper
       selections << boolean_field_wrapper(box, name, value, text)
     end
     label = options[:label]
-    semantic_group("check-box", name, label, selections, options)    
-  end      
+    semantic_group("check-box", name, label, selections, options)
+  end
+
+  def semantic_form_for(object_name, *args, &proc)
+    args[0] ||= {}
+    args[0][:builder] ||= SemanticFormBuilder
+    args[0][:html]    ||= {}
+    args[0][:html][:class] ||= ""
+    args[0][:html][:class] += "semantic_form"
+    form_for(object_name, *args, &proc)
+  end
 
 end

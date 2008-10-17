@@ -1,12 +1,8 @@
+<p>Don't have an account? <%= link_to "Create one now", new_user_path %>.</p>
 
-  <% form_tag(session_path) do -%>
-		<p>Don't have an account? <%= link_to "Create one now", new_user_path %>.</p>
-    <p><label for="login">Login</label><br/>
-    <%= text_field_tag 'login' %></p>
+<% semantic_form_for(:session, :url => session_path) do |f| -%>
+  <%= f.text_field 'login' %></p>
+  <%= f.password_field 'password' %></p>
+  <%= f.submit "Log In" %></p>
+<% end -%>
 
-    <p><label for="password">Password</label><br/>
-    <%= password_field_tag 'password' %></p>
-
-    <p><%= submit_tag 'Log in' %></p>
-
-  <% end -%>
