@@ -42,12 +42,12 @@ form.semantic_form input[type=submit][value=cancel] {
   background: #b3524f; }
 form.semantic_form div.fieldWithErrors {
   display: inline; }
-  form.semantic_form div.fieldWithErrors input, form.semantic_form div.fieldWithErrors select, form.semantic_form div.fieldWithErrors textarea {
-    border-top: 2px solid #8F0600;
-    border-left: 2px solid #8F0600;
-    border-bottom: 2px solid #BB4036;
-    border-right: 2px solid #BB4036;
-    line-height: 1.5em; }
+form.semantic_form div.fieldWithErrors input, form.semantic_form div.fieldWithErrors select, form.semantic_form div.fieldWithErrors textarea {
+  border-top: 2px solid #8F0600;
+  border-left: 2px solid #8F0600;
+  border-bottom: 2px solid #BB4036;
+  border-right: 2px solid #BB4036;
+  line-height: 1.5em; }
 form.semantic_form div.check-box-field,
 form.semantic_form div.check-box-fields,
 form.semantic_form div.date-field,
@@ -67,60 +67,60 @@ form.semantic_form div.submit-field {
   padding: 10px;
   border-bottom: 1px solid #cccccc;
   font-size: 12pt; }
-  form.semantic_form div.check-box-field div.input,
-  form.semantic_form div.check-box-fields div.input,
-  form.semantic_form div.date-field div.input,
-  form.semantic_form div.datetime-field div.input,
-  form.semantic_form div.file-field div.input,
-  form.semantic_form div.password-field div.input,
-  form.semantic_form div.radio-field div.input,
-  form.semantic_form div.radio-fields div.input,
-  form.semantic_form div.select-field div.input,
-  form.semantic_form div.text-field div.input,
-  form.semantic_form div.textarea-field div.input,
-  form.semantic_form div.time-zone-select-field div.input,
-  form.semantic_form div.submit-field div.input {
-    float: left;
-    clear: right;
-    text-align: left;
-    width: 20em;
-    padding-left: 5px; }
-  form.semantic_form div.check-box-field label,
-  form.semantic_form div.check-box-fields label,
-  form.semantic_form div.date-field label,
-  form.semantic_form div.datetime-field label,
-  form.semantic_form div.file-field label,
-  form.semantic_form div.password-field label,
-  form.semantic_form div.radio-field label,
-  form.semantic_form div.radio-fields label,
-  form.semantic_form div.select-field label,
-  form.semantic_form div.text-field label,
-  form.semantic_form div.textarea-field label,
-  form.semantic_form div.time-zone-select-field label,
-  form.semantic_form div.submit-field label {
-    float: left;
-    display: block;
-    width: 12em;
-    padding-right: 10px;
-    text-align: right; }
-    form.semantic_form div.check-box-field label span.help,
-    form.semantic_form div.check-box-fields label span.help,
-    form.semantic_form div.date-field label span.help,
-    form.semantic_form div.datetime-field label span.help,
-    form.semantic_form div.file-field label span.help,
-    form.semantic_form div.password-field label span.help,
-    form.semantic_form div.radio-field label span.help,
-    form.semantic_form div.radio-fields label span.help,
-    form.semantic_form div.select-field label span.help,
-    form.semantic_form div.text-field label span.help,
-    form.semantic_form div.textarea-field label span.help,
-    form.semantic_form div.time-zone-select-field label span.help,
-    form.semantic_form div.submit-field label span.help {
-      display: block;
-      font-size: 60%;
-      font-weight: normal;
-      margin-top: 5px;
-      line-height: 100%; }
+form.semantic_form div.check-box-field div.input,
+form.semantic_form div.check-box-fields div.input,
+form.semantic_form div.date-field div.input,
+form.semantic_form div.datetime-field div.input,
+form.semantic_form div.file-field div.input,
+form.semantic_form div.password-field div.input,
+form.semantic_form div.radio-field div.input,
+form.semantic_form div.radio-fields div.input,
+form.semantic_form div.select-field div.input,
+form.semantic_form div.text-field div.input,
+form.semantic_form div.textarea-field div.input,
+form.semantic_form div.time-zone-select-field div.input,
+form.semantic_form div.submit-field div.input {
+  float: left;
+  clear: right;
+  text-align: left;
+  width: 20em;
+  padding-left: 5px; }
+form.semantic_form div.check-box-field label,
+form.semantic_form div.check-box-fields label,
+form.semantic_form div.date-field label,
+form.semantic_form div.datetime-field label,
+form.semantic_form div.file-field label,
+form.semantic_form div.password-field label,
+form.semantic_form div.radio-field label,
+form.semantic_form div.radio-fields label,
+form.semantic_form div.select-field label,
+form.semantic_form div.text-field label,
+form.semantic_form div.textarea-field label,
+form.semantic_form div.time-zone-select-field label,
+form.semantic_form div.submit-field label {
+  float: left;
+  display: block;
+  width: 12em;
+  padding-right: 10px;
+  text-align: right; }
+form.semantic_form div.check-box-field label span.help,
+form.semantic_form div.check-box-fields label span.help,
+form.semantic_form div.date-field label span.help,
+form.semantic_form div.datetime-field label span.help,
+form.semantic_form div.file-field label span.help,
+form.semantic_form div.password-field label span.help,
+form.semantic_form div.radio-field label span.help,
+form.semantic_form div.radio-fields label span.help,
+form.semantic_form div.select-field label span.help,
+form.semantic_form div.text-field label span.help,
+form.semantic_form div.textarea-field label span.help,
+form.semantic_form div.time-zone-select-field label span.help,
+form.semantic_form div.submit-field label span.help {
+  display: block;
+  font-size: 60%;
+  font-weight: normal;
+  margin-top: 5px;
+  line-height: 100%; }
 form.semantic_form div.submit-field {
   border: none; }
 form.semantic_form div.submit-field div.input {
