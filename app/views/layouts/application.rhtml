@@ -4,11 +4,9 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title></title>
-
   <%= stylesheet_link_tag 'reset-fonts-grids' %>
   <%= stylesheet_link_tag 'screen' %>
   <%= javascript_include_tag :defaults %>
-
 </head>
 
 <body>
@@ -21,7 +19,6 @@
 				<%= link_to "Login", new_session_path %>
       <% end %>
       
-    <!-- header goes here -->
       <% if flash.any? %>
         <div id="flash"><%= flash[:notice] %></div><% flash.clear %>
       <% end %>
@@ -35,7 +32,7 @@
       </div> 
       <div class="yui-u" id="sidebar">
         
-          <%= yield :sidebar %>
+        <%= yield :sidebar %>
 
       </div><!-- yui-u -->
     </div><!-- yui-gc -->
