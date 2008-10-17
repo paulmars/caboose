@@ -15,7 +15,7 @@ protected
     # and @user is used when inferring missing path segments in the url helpers
     @user = @attachable = User.find_by_param(params[:user_id])
   end
-  
+
   # This is implemented on a per-polymorph basis because the asset.attachable may be
   # an object that is *indirectly* tied to the current user.
   def check_auth

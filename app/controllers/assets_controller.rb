@@ -1,9 +1,9 @@
 #
 # As you read this, bear in mind that this controller
 # is involved in a polymorphic relationship and should
-# *never* appear directly in a route.  
-# 
-# Create subclasses that know how to deal with the 
+# *never* appear directly in a route.
+#
+# Create subclasses that know how to deal with the
 # specifics of the relationship between the Asset and
 # its polymorhpic 'attachable' (see UserAssetsController).
 #
@@ -18,13 +18,13 @@ class AssetsController < ApplicationController
   before_filter :load_attachable
   before_filter :load_asset, :except => [ :index, :create, :new ]
   before_filter :check_auth, :only => protected_actions
-  
+
 protected
 
   # assets() is used for find() and build()
   delegate :assets, :to => '@attachable'
   helper_method :assets
-  
+
   def load_asset
     @asset = assets.find(params[:id])
   end
