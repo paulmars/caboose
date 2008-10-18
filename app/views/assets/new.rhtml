@@ -2,6 +2,8 @@
 
 <%= error_messages_for :asset %>
 
+<%= semantic_form_left_column_size(7) %>
+
 <% semantic_form_for(:asset, :url => assets_path(), :html => { :multipart => true }) do |f| -%>
 	<%= f.file_field :uploaded_data, :label => "Select a file:" %>
 	<%= f.submit "Create" %>

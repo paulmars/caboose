@@ -46,11 +46,12 @@ module SemanticFormHelper
     semantic_group("check-box", name, label, selections, options)
   end
 
-  def semantic_form_left_column_size(size)
+  def semantic_form_left_column_size(size, unit = "em")
     <<-FORMSIZE
     <style type="text/css">
-      form.semantic_form div.check-box-field label, form.semantic_form div.check-box-fields label, form.semantic_form div.date-field label, form.semantic_form div.datetime-field label, form.semantic_form div.file-field label, form.semantic_form div.password-field label, form.semantic_form div.radio-field label, form.semantic_form div.radio-fields label, form.semantic_form div.select-field label, form.semantic_form div.text-field label, form.semantic_form div.textarea-field label, form.semantic_form div.time-zone-select-field label, form.semantic_form div.submit-field label {width: #{size}}
-    </style>
+      form.semantic_form div.check-box-field label, form.semantic_form div.check-box-fields label, form.semantic_form div.date-field label, form.semantic_form div.datetime-field label, form.semantic_form div.file-field label, form.semantic_form div.password-field label, form.semantic_form div.radio-field label, form.semantic_form div.radio-fields label, form.semantic_form div.select-field label, form.semantic_form div.text-field label, form.semantic_form div.textarea-field label, form.semantic_form div.time-zone-select-field label, form.semantic_form div.submit-field label {width: #{size}#{unit};}
+      form.semantic_form div.submit-field div.input { margin-left:#{size}.3#{unit}; }
+   </style>
     FORMSIZE
   end
 
