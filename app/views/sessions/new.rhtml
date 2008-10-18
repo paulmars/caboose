@@ -1,5 +1,7 @@
 <p>Don't have an account? <%= link_to "Create one now", new_user_path %>.</p>
 
+<%= semantic_form_left_column_size("5em") %>
+
 <% semantic_form_for(:session, :url => session_path) do |f| -%>
   <%= f.text_field 'login' %></p>
   <%= f.password_field 'password' %></p>
