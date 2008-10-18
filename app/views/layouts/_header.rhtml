@@ -1,0 +1,10 @@
+<a href="/">Main</a>
+<% if logged_in? %>
+	<%= link_to "Logout", session_path, :method => :delete %>
+<% else %>
+	<%= link_to "Login", new_session_path %>
+<% end %>
+
+<% if flash.any? %>
+  <div id="flash"><%= flash[:notice] %></div><% flash.clear %>
+<% end %>
