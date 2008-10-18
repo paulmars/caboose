@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
   before_filter :login_from_cookie
 
   def new
+    render :layout => "1col"
   end
 
   def create
@@ -17,7 +18,7 @@ class SessionsController < ApplicationController
       redirect_back_or_default('/')
       flash[:notice] = "Logged in successfully"
     else
-      render :action => 'new'
+      render :action => 'new', :layout => "1col"
     end
   end
 
