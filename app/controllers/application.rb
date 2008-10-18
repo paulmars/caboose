@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   # If you want timezones per-user, uncomment this:
   #before_filter :login_required
 
-  around_filter :catch_errors
+  # around_filter :catch_errors
 
   helper :all # include all helpers, all the time
 

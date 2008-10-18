@@ -27,21 +27,21 @@ context "/session POST" do
 
   specify 'should authenticate user' do
     User.should_receive(:authenticate).with('user', 'password').and_return(@user)
-    post :create, :login => 'user', :password => 'password'
+    post :create, :session => {:login => 'user', :password => 'password'}
   end
 
   specify 'should login user' do
     controller.should_receive(:logged_in?).and_return(true)
-    post :create
+    post :create, :session => {}
   end
 
   specify "should remember me" do
-    post :create
+    post :create, :session => {}
     response.cookies["auth_token"].should be_nil
   end
 
   specify "should redirect to root" do
-    post :create
+    post :create, :session => {}
     response.should redirect_to('http://test.host/')
   end
 end
@@ -86,7 +86,7 @@ context "/session POST when invalid" do
 
   specify 'should authenticate user' do
     User.should_receive(:authenticate).with('user', 'password').and_return(nil)
-    post :create, :login => 'user', :password => 'password'
+    post :create, :session => {:login => 'user', :password => 'password'}
   end
 
   specify 'should login user' do
