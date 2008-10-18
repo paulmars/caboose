@@ -3,8 +3,9 @@ class SessionsController < ApplicationController
   # If you want "remember me" functionality, add this before_filter to Application Controller
   before_filter :login_from_cookie
 
+  layout "1col"
+
   def new
-    render :layout => "1col"
   end
 
   def create
@@ -18,7 +19,7 @@ class SessionsController < ApplicationController
       redirect_back_or_default('/')
       flash[:notice] = "Logged in successfully"
     else
-      render :action => 'new', :layout => "1col"
+      render :action => 'new'
     end
   end
 
