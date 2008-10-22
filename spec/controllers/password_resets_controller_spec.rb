@@ -29,6 +29,14 @@ describe PasswordResetsController do
 
   describe "responding to GET edit" do
 
+    before(:each) do
+      @user = mock_user
+      controller.stub!(:current_user).and_return(@user)
+      @user.stub!(:remember_token).and_return('1111')
+      @user.stub!(:remember_token_expires_at).and_return(Time.now)
+      @user.stub!(:remember_me).and_return(true)
+    end
+
     it "should expose the requested password_reset as @password_reset" do
       PasswordReset.should_receive(:find_by_token).with("atoken").and_return(mock_password_reset)
       get :edit, :token => "atoken"
