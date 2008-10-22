@@ -2,12 +2,12 @@
 
 <%= error_messages_for :user %>
 
-<% form_for(:user, :url => user_path(@user), :html => { :method => :put }) do |f| %>
+<%= semantic_form_left_column_size(5) %>
 
+<% semantic_form_for(:user, :url => users_path, :html => { :method => :put }) do |f| -%>
   <%= render :partial => 'form', :object => f %>
-
-  <p><%= submit_tag "Update" %></p>
-<% end %>
+  <%= f.submit "Update" %>
+<% end -%>
 
 <%= link_to 'Show', user_path(@user) %> |
 <%= link_to 'Back', users_path %>

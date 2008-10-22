@@ -6,6 +6,8 @@ class UsersController < ApplicationController
 
   delegate_url_helpers :for => UserAssetsController
 
+  layout "1col"
+
 protected
   def load_user
     @user = User.find_by_param(params[:id]) or raise ActiveRecord::RecordNotFound

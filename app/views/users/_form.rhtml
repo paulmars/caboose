@@ -1,12 +1,4 @@
-
-    <p><label for="login">Login</label><br/>
-    <%= form.text_field :login %></p>
-
-    <p><label for="email">Email</label><br/>
-    <%= form.text_field :email %></p>
-
-    <p><label for="password">Password</label><br/>
-    <%= form.password_field :password %></p>
-
-    <p><label for="password_confirmation">Confirm Password</label><br/>
-    <%= form.password_field :password_confirmation %></p>
+<%= form.text_field :login, :label => "Login:" %>
+<%= form.text_field :email, :label => "Email:" %>
+<%= form.password_field :password, :label => "Password:" %>
+<%= form.password_field :password_confirmation, :label => "Confirm:" %>
