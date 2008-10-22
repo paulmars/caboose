@@ -13,6 +13,7 @@ class PasswordResetsController < ApplicationController
 
   def edit
     @password_reset = PasswordReset.find_by_token(params[:token])
+    @user = @password_reset.user
     # if @password_reset.user
     #   self.current_user = @password_reset.user
     #   self.current_user.remember_me
@@ -40,13 +41,13 @@ class PasswordResetsController < ApplicationController
 
   def update
     @password_reset = PasswordReset.find_by_token(params[:token])
-    user = @password_reset.user if @password_reset
+    @user = @password_reset.user if @password_reset
 
     respond_to do |format|
-      if user and user.update_attributes(params[:user])
+      if @user and @user.update_attributes(params[:user])
         @password_reset.destroy
         flash[:notice] = 'Password was successfully updated.'
-        format.html { redirect_to(user) }
+        format.html { redirect_to(@user) }
         format.xml  { head :ok }
       else
         flash[:notice] = 'An error has occured, try again?'
