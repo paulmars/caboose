@@ -1,0 +1,13 @@
+<p>
+  <b>User:</b>
+  <%=h @password_reset.user_id %>
+</p>
+
+<p>
+  <b>Token:</b>
+  <%=h @password_reset.token %>
+</p>
+
+
+<%= link_to 'Edit', edit_password_reset_path(@password_reset) %> |
+<%= link_to 'Back', password_resets_path %>

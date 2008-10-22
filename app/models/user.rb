@@ -21,6 +21,7 @@ require 'digest/sha1'
 class User < ActiveRecord::Base
   include AuthenticatedBase
   has_many :assets, :as => :attachable
+  has_one :password_reset
 
   validates_uniqueness_of :login, :email, :case_sensitive => false
 

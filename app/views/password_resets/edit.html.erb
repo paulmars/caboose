@@ -1,0 +1,9 @@
+<h1>Update Your Password</h1>
+
+<% semantic_form_for(:user, :url => password_reset_path, :html => {:method => :put}) do |f| -%>
+  <%= hidden_field_tag :token, params[:token] %>
+  <%= f.password_field 'password' %>
+  <%= f.password_field 'password_confirmation' %>
+  <%= f.submit "Update" %>
+<% end -%>
+

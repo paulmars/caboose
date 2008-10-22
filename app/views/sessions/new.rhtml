@@ -3,9 +3,9 @@
 <%= semantic_form_left_column_size(5) %>
 
 <% semantic_form_for(:session, :url => session_path) do |f| -%>
-  <%= f.text_field 'login' %></p>
-  <%= f.password_field 'password' %></p>
-  <%= f.submit "Log In" %></p>
+  <%= f.text_field 'login' %>
+  <%= f.password_field 'password', :help => link_to("Reset", new_password_reset_path) %>
+  <%= f.submit "Log In" %>
 <% end -%>
 
 <%= link_to 'Back', users_path %>

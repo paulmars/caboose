@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-
+  map.resource :password_reset
   map.resource :session
   map.resources :users do |user|
     # UserAssetsController knows how to deal with the 
