@@ -19,4 +19,4 @@ config.action_mailer.raise_delivery_errors = false
 require 'ruby-debug'
 Debugger.start
 
-DOMAIN = "test.host"
+DOMAIN = "localhost:3000"

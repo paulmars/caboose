@@ -4,6 +4,6 @@
 
 <% semantic_form_for(:password_reset, :url => password_reset_path) do |f| -%>
   <%= f.error_messages %>
-  <%= f.text_field 'email' %>
+  <%= f.text_field 'email', :label => "Email:" %>
   <%= f.submit "Reset" %>
 <% end -%>
