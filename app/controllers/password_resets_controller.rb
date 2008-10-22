@@ -13,12 +13,12 @@ class PasswordResetsController < ApplicationController
 
   def edit
     @password_reset = PasswordReset.find_by_token(params[:token])
-    if @password_reset.user
-      self.current_user = @password_reset.user
-      self.current_user.remember_me
-      cookies[:auth_token] = { :value => self.current_user.remember_token,
-                               :expires => self.current_user.remember_token_expires_at }
-    end
+    # if @password_reset.user
+    #   self.current_user = @password_reset.user
+    #   self.current_user.remember_me
+    #   cookies[:auth_token] = { :value => self.current_user.remember_token,
+    #                            :expires => self.current_user.remember_token_expires_at }
+    # end
   end
 
   def create
@@ -50,7 +50,7 @@ class PasswordResetsController < ApplicationController
         format.xml  { head :ok }
       else
         flash[:notice] = 'An error has occured, try again?'
-        format.html { render :action => "new" }
+        format.html { render :action => "edit" }
         format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
       end
     end
