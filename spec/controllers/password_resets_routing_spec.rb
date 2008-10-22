@@ -25,11 +25,11 @@ describe PasswordResetsController do
     end
   
     it "should generate params for #edit" do
-      params_from(:get, "/password_reset/1/edit").should == {:controller => "password_resets", :action => "edit", :id => "1"}
+      params_from(:get, "/password_reset/edit").should == {:controller => "password_resets", :action => "edit"}
     end
   
     it "should generate params for #update" do
-      params_from(:put, "/password_reset/1").should == {:controller => "password_resets", :action => "update", :id => "1"}
+      params_from(:put, "/password_reset").should == {:controller => "password_resets", :action => "update"}
     end
   end
 end
