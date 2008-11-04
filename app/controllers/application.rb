@@ -10,7 +10,6 @@ class ApplicationController < ActionController::Base
   # Pick a unique cookie name to distinguish our session data from others'
   session :session_key => '_trunk_session_id'
 
-  # If you want timezones per-user, uncomment this:
   #before_filter :login_required
 
   around_filter :catch_errors

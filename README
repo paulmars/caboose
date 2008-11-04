@@ -7,9 +7,8 @@ It is intended to be an example of "better practices", but with the intention of
 
 The application implements many of the basic and advanced features I find myself using in every new project:
 
-  - a user model with a few extra fields (last login, timezones)
+  - a user model with a few extra fields (last login)
   - restful authentication.
-  - full timezone support
   - basic views implemented with Yahoo! YUI CSS grids.
   - behavioral testing with rspec, including good example of mocking in controller specs.
   - exception notification
