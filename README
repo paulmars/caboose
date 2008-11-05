@@ -1,3 +1,12 @@
+UPDATE:
+
+This is a fresher version of the caboose sample app.  
+
+- Newer rspec
+- Timezones removed (i didn't use them)
+- Semantic Forms
+- Password Reset
+
 Caboose Sample App
 ==================
 
