@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081021235313) do
+ActiveRecord::Schema.define(:version => 20090121001644) do
 
   create_table "assets", :force => true do |t|
     t.string   "filename"
@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(:version => 20081021235313) do
     t.datetime "created_at"
     t.string   "thumbnail"
     t.integer  "parent_id"
+  end
+
+  create_table "browsers", :force => true do |t|
+    t.string   "name"
+    t.string   "app_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "password_resets", :force => true do |t|

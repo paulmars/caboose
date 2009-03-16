@@ -23,7 +23,7 @@ context "Requesting /assets using GET" do
 
   specify "should render index.rhtml" do
     do_get
-    response.should render_template('assets/index')
+    response.should render_template('user_assets/index')
   end
   
   specify "should find all assets" do
@@ -91,7 +91,7 @@ context "Requesting /assets/1 using GET" do
   
   specify "should render show.rhtml" do
     do_get
-    response.should render_template('assets/show')
+    response.should render_template('user_assets/show')
   end
   
   specify "should find the asset requested" do
@@ -157,7 +157,7 @@ context "Requesting /assets/new using GET" do
   
   specify "should render new.rhtml" do
     do_get
-    response.should render_template('assets/new')
+    response.should render_template('user_assets/new')
   end
   
   specify "should create an new asset" do
@@ -198,7 +198,7 @@ context "Requesting /assets/1/edit using GET" do
   
   specify "should render edit.rhtml" do
     do_get
-    response.should render_template('assets/edit')
+    response.should render_template('user_assets/edit')
   end
   
   specify "should find the asset requested" do
@@ -232,7 +232,7 @@ context "Requesting /assets using POST" do
 
   specify "should redirect to the new asset" do
     do_post
-    response.should redirect_to("http://test.host/users/joe/assets/1")
+    response.should redirect_to("http://test.host/users/joe/user_assets/1")
   end
 end
 
@@ -270,7 +270,7 @@ context "Requesting /assets/1 using PUT" do
   specify "should redirect to the asset" do
     do_update
     response.should be_redirect
-    response.redirect_url.should == "http://test.host/users/joe/assets/1"
+    response.redirect_url.should == "http://test.host/users/joe/user_assets/1"
   end
 end
 
