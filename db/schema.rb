@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090121001644) do
+ActiveRecord::Schema.define(:version => 20090316050814) do
 
   create_table "assets", :force => true do |t|
     t.string   "filename"
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(:version => 20090121001644) do
   add_index "password_resets", ["token"], :name => "index_password_resets_on_token"
 
   create_table "users", :force => true do |t|
-    t.string   "login"
+    t.string   "name"
     t.string   "email"
     t.string   "crypted_password",          :limit => 40
     t.string   "salt",                      :limit => 40

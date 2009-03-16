@@ -23,17 +23,17 @@ class User < ActiveRecord::Base
   has_many :assets, :as => :attachable
   has_one :password_reset
 
-  validates_uniqueness_of :login, :email, :case_sensitive => false
+  validates_uniqueness_of :name, :email, :case_sensitive => false
 
   # Protect internal methods from mass-update.
-  attr_accessible :login, :email, :password, :password_confirmation, :time_zone
+  attr_accessible :name, :email, :password, :password_confirmation, :time_zone
 
   def to_param
-    login
+    name
   end
 
   def self.find_by_param(*args)
-    find_by_login *args
+    find_by_name *args
   end
 
 end

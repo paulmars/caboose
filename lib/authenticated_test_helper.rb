@@ -14,7 +14,7 @@ module AuthenticatedTestHelper
 
   def authorize_as(user)
     if user
-      @request.env["HTTP_AUTHORIZATION"] = "Basic #{Base64.encode64("#{users(user).login}:test")}"
+      @request.env["HTTP_AUTHORIZATION"] = "Basic #{Base64.encode64("#{users(user).name}:test")}"
       accept       'application/xml'
       content_type 'application/xml'
     else

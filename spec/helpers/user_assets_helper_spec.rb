@@ -4,7 +4,7 @@ context "the UserAssetsHelper" do
   helper_name :user_assets
 
   before(:each) do
-    @attachable = mock_model(User, :login => 'JoeLogin')
+    @attachable = mock_model(User, :name => 'JoeLogin')
   end
   
   specify "should return user login name" do

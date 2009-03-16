@@ -7,12 +7,12 @@ module AuthenticatedBase
 
     base.set_table_name base.name.tableize
 
-    base.validates_presence_of     :login, :email
+    base.validates_presence_of     :name, :email
     base.validates_presence_of     :password,                   :if => :password_required?
     base.validates_presence_of     :password_confirmation,      :if => :password_required?
     base.validates_length_of       :password, :within => 4..40, :if => :password_required?
     base.validates_confirmation_of :password,                   :if => :password_required?
-    base.validates_length_of       :login,    :within => 3..40
+    base.validates_length_of       :name,    :within => 3..40
     base.validates_length_of       :email,    :within => 3..100
     base.before_save :encrypt_password
 
@@ -26,8 +26,8 @@ module AuthenticatedBase
   module ClassMethods
 
     ## Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
-    def authenticate(login, password)
-      u = User.find_by_login(login) # need to get the salt
+    def authenticate(email, password)
+      u = User.find_by_email(email) # need to get the salt
       u && u.authenticated?(password) ? u : nil
     end
 
@@ -77,7 +77,7 @@ module AuthenticatedBase
 
   def encrypt_password
     return if password.blank?
-    self.salt = Digest::SHA1.hexdigest("--#{Time.now.to_s}--#{login}--") if new_record?
+    self.salt = Digest::SHA1.hexdigest("--#{Time.now.to_s}--#{name}--") if new_record?
     self.crypted_password = encrypt(password)
   end
 

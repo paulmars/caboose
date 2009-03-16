@@ -26,8 +26,8 @@ context "/session POST" do
   end
 
   specify 'should authenticate user' do
-    User.should_receive(:authenticate).with('user', 'password').and_return(@user)
-    post :create, :session => {:login => 'user', :password => 'password'}
+    User.should_receive(:authenticate).with('paul@paul.com', 'password').and_return(@user)
+    post :create, :session => {:email => 'paul@paul.com', :password => 'password'}
   end
 
   specify 'should login user' do
@@ -66,12 +66,12 @@ context "/session POST with remember me" do
   # this never tested correct code, fixtures weren't loading
   # specify "should remember me" do
   #   @user.should_receive(:remember_me)
-  #   post :create, :login => "derek", :password => "password", :remember_me => "1"
+  #   post :create, :name => "derek", :password => "password", :remember_me => "1"
   # end
 
   # specify 'should create cookie' do
   #   @ccookies.should_receive(:[]=).with(:auth_token, { :value => '1111' , :expires => @user.remember_token_expires_at })
-  #   post :create, :login => "derek", :password => "password", :remember_me => "1"
+  #   post :create, :name => "derek", :password => "password", :remember_me => "1"
   # end
 end
 
@@ -85,8 +85,8 @@ context "/session POST when invalid" do
   end
 
   specify 'should authenticate user' do
-    User.should_receive(:authenticate).with('user', 'password').and_return(nil)
-    post :create, :session => {:login => 'user', :password => 'password'}
+    User.should_receive(:authenticate).with('user@user.com', 'password').and_return(nil)
+    post :create, :session => {:email => 'user@user.com', :password => 'password'}
   end
 
   specify 'should login user' do

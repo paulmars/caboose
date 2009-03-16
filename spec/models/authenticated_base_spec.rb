@@ -11,18 +11,18 @@ end
 
 context "An existing user" do
   before(:each) do
-    @user = User.create!(:login => 'quentin', :password => 'monkey', :password_confirmation => 'monkey', :email => 'test@foo.bar')
+    @user = User.create!(:name => 'quentin', :password => 'monkey', :password_confirmation => 'monkey', :email => 'test@foo.bar')
     @store.stub!(:buyers).and_return(User)
   end
   
   specify "should authenticate with new or reset password" do
     @user.update_attributes(:password => 'new password', :password_confirmation => 'new password')
-    User.authenticate('quentin', 'new password').should == @user
+    User.authenticate('test@foo.bar', 'new password').should == @user
   end
   
-  specify "should not rehash password on login change" do
-    @user.update_attributes(:login => 'quentin2')
-    User.authenticate('quentin2', 'monkey').should == @user
+  specify "should not rehash password on name change" do
+    @user.update_attributes(:email => 'test@foo.bar')
+    User.authenticate('test@foo.bar', 'monkey').should == @user
   end
   
   specify "should remember token" do
@@ -59,8 +59,8 @@ context "A new user" do
     lambda{ user = create_user ; user.should_not be_new_record }.should change(User,:count).by(1)
   end
   
-  specify "should require login" do
-    lambda{ u = create_user(:login => nil) ; u.should have_at_least(1).errors_on(:login) }.
+  specify "should require name" do
+    lambda{ u = create_user(:name => nil) ; u.should have_at_least(1).errors_on(:name) }.
           should_not change(User,:count)
   end
   
@@ -80,6 +80,6 @@ context "A new user" do
   end
 
   def create_user(options = {})
-    User.create({ :login => 'quire', :email => 'quire@example.com', :password => 'quire', :password_confirmation => 'quire' }.merge(options))
+    User.create({ :name => 'quire', :email => 'quire@example.com', :password => 'quire', :password_confirmation => 'quire' }.merge(options))
   end
 end

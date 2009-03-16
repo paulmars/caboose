@@ -8,10 +8,9 @@ context "/users/edit.rhtml" do
     @errors.stub!(:count).and_return(0)
 
     @user = mock_model(User, :errors => @errors, 
-      :login => 'Foo', 
+      :name => 'Foo', 
       :email => 'foo@test.bar', 
-      :password => nil, :password_confirmation => nil,
-      :time_zone => 'Etc/UTC')
+      :password => nil, :password_confirmation => nil)
 
     assigns[:user] = @user
   end

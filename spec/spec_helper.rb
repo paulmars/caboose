@@ -25,7 +25,7 @@ Spec::Runner.configure do |config|
   def mock_user
     user = mock_model(User,
       :id => 1,
-      :login => 'flappy',
+      :name => 'flappy',
       :email => 'flappy@email.com',
       :password => '', :password_confirmation => ''
     )

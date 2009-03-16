@@ -4,7 +4,7 @@ context "A User" do
   include ActiveRecordMatchers
 
   before(:each) do
-   @user = User.new :login => 'quentin', :password => 'blah', :password_confirmation => 'blah', :email => 'quentin@example.com'
+   @user = User.new :name => 'quentin', :password => 'blah', :password_confirmation => 'blah', :email => 'quentin@example.com'
   end
 
   specify "should have valid associations" do
