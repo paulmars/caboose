@@ -5,7 +5,7 @@
 # ENV['RAILS_ENV'] ||= 'production'
 
 # Specifies gem version of Rails to use when vendor/rails is not present
-RAILS_GEM_VERSION = '2.1.2' unless defined? RAILS_GEM_VERSION
+RAILS_GEM_VERSION = '2.2.2' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
@@ -22,8 +22,10 @@ Rails::Initializer.run do |config|
 
   # Specify gems that this application depends on. 
   # They can then be installed with "rake gems:install" on new installations.
+  # You have to specify the :lib option for libraries, where the Gem name (sqlite3-ruby) differs from the file itself (sqlite3)
   # config.gem "bj"
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
+  # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
 
   # Only load the plugins named here, in the order given. By default, all plugins 
@@ -41,15 +43,20 @@ Rails::Initializer.run do |config|
   # Make Time.zone default to the specified zone, and make Active Record store time values
   # in the database in UTC, and return them converted to the specified local zone.
   # Run "rake -D time" for a list of tasks for finding time zone names. Comment line to use default local time.
-  # config.time_zone = 'UTC'
+  config.time_zone = 'UTC'
+
+  # The internationalization framework can be changed to have another default locale (standard is :en) or more load paths.
+  # All files from config/locales/*.rb,yml are added automatically.
+  # config.i18n.load_path << Dir[File.join(RAILS_ROOT, 'my', 'locales', '*.{rb,yml}')]
+  # config.i18n.default_locale = :de
 
   # Your secret key for verifying cookie session data integrity.
   # If you change this key, all old sessions will become invalid!
   # Make sure the secret is at least 30 characters and all random, 
   # no regular words or you'll be exposed to dictionary attacks.
   config.action_controller.session = {
-    :session_key => '_sample-app4_session',
-    :secret      => 'f44bfc46486e760b49f088986f5a31d6b9883a3cdf3a9ff2bcd3350b3c056e6eaf4e190d69c4a4c1e2f914b8bf9ad92ce27251baa0c9e3695f84549e42c44b58'
+    :session_key => '_caboose_session',
+    :secret      => '614a698c8e999b812add281d6785b3abb3a571173c6c164e8df54b7cb5aba0c104c31b243c4f5d31817f990a062b5be4c99b4b951424966549fbeeceb19f818e'
   }
 
   # Use the database for sessions instead of the cookie-based default,
@@ -63,5 +70,6 @@ Rails::Initializer.run do |config|
   # config.active_record.schema_format = :sql
 
   # Activate observers that should always be running
-  # config.active_record.observers = :cacher, :garbage_collector
+  # Please note that observers generated using script/generate observer need to have an _observer suffix
+  # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
 end
