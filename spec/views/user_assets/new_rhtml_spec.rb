@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../../spec_helper'
 
-context "/assets/new.rhtml" do
+context "/assets/new.html.erb" do
   include AssetsHelper
   
   before(:each) do
@@ -35,7 +35,7 @@ context "/assets/new.rhtml" do
   end
 
   specify "should render new form" do
-    render "/assets/new.rhtml"
+    render "/user_assets/new.html.erb"
     response.should have_tag( 'h1', :content => /ATTACHABLE_NAME/)
     response.should have_tag( 'form', :attributes =>{:action => 'ASSETS_PATH', :method => 'post'})
     response.should have_tag( 'input', :attributes =>{:name => 'asset[uploaded_data]'})

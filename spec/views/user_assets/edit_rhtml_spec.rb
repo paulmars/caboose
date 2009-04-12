@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../../spec_helper'
 
-context "/assets/edit.rhtml" do
+context "/assets/edit.html.erb" do
   include AssetsHelper
   
   before(:each) do
@@ -32,7 +32,7 @@ context "/assets/edit.rhtml" do
   end
 
   specify "should render edit form" do
-    render "/assets/edit.rhtml"
+    render "/user_assets/edit.html.erb"
     response.should have_tag('form', :attributes =>{:action => 'ASSET_PATH', :method => 'post'})
 
     response.should have_tag('input', :attributes =>{:name => 'asset[filename]'})

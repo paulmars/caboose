@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../../spec_helper'
 
-context "/assets/index.rhtml" do
+context "/assets/index.html.erb" do
   include AssetsHelper
   
   before(:each) do
@@ -44,7 +44,7 @@ context "/assets/index.rhtml" do
   end
 
   specify "should render list of assets" do
-    render "/assets/index.rhtml"
+    render "/user_assets/index.html.erb"
 
     response.should have_tag( 'td', :content => "MyString")
     response.should have_tag( 'td', :content => "1")

@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../../spec_helper'
 
-context "/assets/show.rhtml" do
+context "/assets/show.html.erb" do
   include AssetsHelper
   
   before(:each) do
@@ -30,7 +30,7 @@ context "/assets/show.rhtml" do
   end
 
   specify "should render attributes in <p>" do
-    render "/assets/show.rhtml"
+    render "/user_assets/show.html.erb"
 
     # response.should have_tag('p', :content => "MyString")
     # response.should have_tag('p', :content => "1")
