@@ -68,8 +68,8 @@ public
     respond_to do |format|
       if @asset.save
         flash[:notice] = 'Asset was successfully created.'
-        format.html { redirect_to asset_url(@asset) }
-        format.xml  { head :created, :location => asset_url(@asset) }
+        format.html { redirect_to user_user_asset_url(@asset) }
+        format.xml  { head :created, :location => user_user_asset_url(@asset) }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @asset.errors.to_xml }
@@ -83,7 +83,7 @@ public
     respond_to do |format|
       if @asset.update_attributes(params[:asset])
         flash[:notice] = 'Asset was successfully updated.'
-        format.html { redirect_to asset_url(@asset) }
+        format.html { redirect_to user_user_asset_url(@asset) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

@@ -11,7 +11,7 @@ describe PasswordResetsController do
     end
   
     it "should map #update" do
-      route_for(:controller => "password_resets", :action => "update", :token => "atoken").should == "/password_reset?token=atoken"
+      route_for(:controller => "password_resets", :action => "update", :token => "atoken").should == {:path => "/password_reset?token=atoken", :method => :put}
     end
   end
 

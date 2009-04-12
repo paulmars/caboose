@@ -232,7 +232,7 @@ context "Requesting /assets using POST" do
 
   specify "should redirect to the new asset" do
     do_post
-    response.should redirect_to("http://test.host/users/joe/user_assets/1")
+    response.should redirect_to("http://test.host/users/joe/assets/1")
   end
 end
 
@@ -270,7 +270,7 @@ context "Requesting /assets/1 using PUT" do
   specify "should redirect to the asset" do
     do_update
     response.should be_redirect
-    response.redirect_url.should == "http://test.host/users/joe/user_assets/1"
+    response.redirect_url.should == "http://test.host/users/joe/assets/1"
   end
 end
 
