@@ -4,8 +4,6 @@ class UsersController < ApplicationController
   before_filter :load_user, :except => [ :index, :create, :new ]
   before_filter :check_auth, :only => @protected_actions
 
-  delegate_url_helpers :for => UserAssetsController
-
   layout "1col"
 
 protected

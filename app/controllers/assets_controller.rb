@@ -98,7 +98,7 @@ public
     @asset.destroy
 
     respond_to do |format|
-      format.html { redirect_to assets_url() }
+      format.html { redirect_to user_user_assets_url() }
       format.xml  { head :ok }
     end
   end

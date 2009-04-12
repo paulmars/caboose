@@ -18,15 +18,14 @@ context "the generated url helpers for UserAssetsController" do
     
     # wire up the fake controller class to use the same helper definition
     # that the real controller uses
-    @controller.class.delegate_url_helpers :for => UserAssetsController
   end
   
   specify "should return assets path given no arguments" do
-    # todo: assets_path.should eql("/users/joe/assets")
+    # todo: user_user_assets_path.should eql("/users/joe/assets")
   end
   
   specify "should return assets path given explicit argument" do
-    assets_path(mock_model(User, :to_param => 'barney')).should eql("/users/barney/assets")
+    user_user_assets_path(mock_model(User, :to_param => 'barney')).should eql("/users/barney/assets")
   end
 
   specify "should return asset path" do
@@ -42,6 +41,6 @@ context "the generated url helpers for UserAssetsController" do
   end
 
   specify "should return asset_attachable path" do
-    asset_attachable_path(@user).should eql("/users/joe")
+    user_path(@user).should eql("/users/joe")
   end
 end

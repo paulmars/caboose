@@ -28,7 +28,7 @@ context "/assets/edit.rhtml" do
     # views with helper_method().  We set expectations for calls to those helpers
     # but don't bother wiring them up - they will be tested in helper tests.
     @controller.template.should_receive(:asset_path).with(@asset).exactly(2).times.and_return('ASSET_PATH')
-    @controller.template.should_receive(:assets_path).with().and_return('ASSETS_PATH')
+    @controller.template.should_receive(:user_user_assets_path).with().and_return('ASSETS_PATH')
   end
 
   specify "should render edit form" do
