@@ -1,3 +1,16 @@
+# == Schema Information
+# Schema version: 20090316050814
+#
+# Table name: password_resets
+#
+#  id         :integer       not null, primary key
+#  user_id    :integer       
+#  token      :string(255)   
+#  email      :string(255)   
+#  created_at :datetime      
+#  updated_at :datetime      
+#
+
 class PasswordReset < ActiveRecord::Base
 
   TOKEN_SIZE = 8

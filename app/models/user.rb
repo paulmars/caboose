@@ -1,20 +1,20 @@
 # == Schema Information
-# Schema version: 20081004012912
+# Schema version: 20090316050814
 #
 # Table name: users
 #
-#  id                        :integer(4)    not null, primary key
-#  login                     :string(255)
-#  email                     :string(255)
-#  crypted_password          :string(40)
-#  salt                      :string(40)
-#  created_at                :datetime
-#  updated_at                :datetime
-#  last_login_at             :datetime
-#  remember_token            :string(255)
-#  remember_token_expires_at :datetime
-#  visits_count              :integer(4)    default(0)
-#  permalink                 :string(255)
+#  id                        :integer       not null, primary key
+#  name                      :string(255)   
+#  email                     :string(255)   
+#  crypted_password          :string(40)    
+#  salt                      :string(40)    
+#  created_at                :datetime      
+#  updated_at                :datetime      
+#  last_login_at             :datetime      
+#  remember_token            :string(255)   
+#  remember_token_expires_at :datetime      
+#  visits_count              :integer       default(0)
+#  permalink                 :string(255)   
 #
 
 require 'digest/sha1'

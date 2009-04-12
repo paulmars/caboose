@@ -1,20 +1,20 @@
 # == Schema Information
-# Schema version: 20081004012912
+# Schema version: 20090316050814
 #
 # Table name: assets
 #
-#  id              :integer(4)    not null, primary key
-#  filename        :string(255)
-#  width           :integer(4)
-#  height          :integer(4)
-#  content_type    :string(255)
-#  size            :integer(4)
-#  attachable_type :string(255)
-#  attachable_id   :integer(4)
-#  updated_at      :datetime
-#  created_at      :datetime
-#  thumbnail       :string(255)
-#  parent_id       :integer(4)
+#  id              :integer       not null, primary key
+#  filename        :string(255)   
+#  width           :integer       
+#  height          :integer       
+#  content_type    :string(255)   
+#  size            :integer       
+#  attachable_type :string(255)   
+#  attachable_id   :integer       
+#  updated_at      :datetime      
+#  created_at      :datetime      
+#  thumbnail       :string(255)   
+#  parent_id       :integer       
 #
 
 class Asset < ActiveRecord::Base
