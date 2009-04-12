@@ -25,13 +25,6 @@ ActiveRecord::Schema.define(:version => 20090316050814) do
     t.integer  "parent_id"
   end
 
-  create_table "browsers", :force => true do |t|
-    t.string   "name"
-    t.string   "app_name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "password_resets", :force => true do |t|
     t.integer  "user_id"
     t.string   "token"
@@ -54,10 +47,6 @@ ActiveRecord::Schema.define(:version => 20090316050814) do
     t.datetime "remember_token_expires_at"
     t.integer  "visits_count",                            :default => 0
     t.string   "permalink"
-    t.string   "password_token"
-    t.datetime "password_token_reset_at"
   end
-
-  add_index "users", ["password_token"], :name => "password_reset"
 
 end

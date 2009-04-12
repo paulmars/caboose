@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   class AccessDenied < StandardError; end
 
   # Pick a unique cookie name to distinguish our session data from others'
-  session :session_key => '_trunk_session_id'
+  # session :session_key => '_trunk_session_id'
 
   #before_filter :login_required
 
