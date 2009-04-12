@@ -24,14 +24,14 @@
     <td><%=h asset.attachable_id %></td>
     <td><%=h asset.updated_at %></td>
     <td><%=h asset.created_at %></td>
-    <td><%= link_to 'Show', user_user_asset_path(:asset => asset, :user_id => @user) %></td>
-    <td><%= link_to 'Edit', edit_user_user_asset_path(:asset => asset, :user_id => @user) %></td>
-    <td><%= link_to 'Destroy', user_user_asset_path(:asset => asset, :user_id => @user), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', user_user_asset_path(@user, asset) %></td>
+    <td><%= link_to 'Edit', edit_user_user_asset_path(@user, asset) %></td>
+    <td><%= link_to 'Destroy', user_user_asset_path(@user, asset), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New asset', new_user_user_asset_path(:user_id => @attachable) %> |
-<%= link_to "Return to #{@attachable.class.name}", user_path(@attachable) %>
+<%= link_to 'New asset', new_user_user_asset_path(@user) %> |
+<%= link_to "Return to #{@attachable.class.name}", user_path(@user) %>

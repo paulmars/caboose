@@ -28,8 +28,8 @@ context "/assets/edit.html.erb" do
     # that resource_fu creates which are defined in the controller and exposed to
     # views with helper_method().  We set expectations for calls to those helpers
     # but don't bother wiring them up - they will be tested in helper tests.
-    @controller.template.should_receive(:asset_path).with(@asset, :user => @user).exactly(2).times.and_return('ASSET_PATH')
-    @controller.template.should_receive(:user_user_assets_path).with(:user_id => @user, :asset => @asset).and_return('ASSETS_PATH')
+    @controller.template.should_receive(:user_user_asset_path).with(@user, @asset).exactly(2).times.and_return('ASSET_PATH')
+    @controller.template.should_receive(:user_user_assets_path).with(@user).and_return('ASSETS_PATH')
   end
 
   specify "should render edit form" do
