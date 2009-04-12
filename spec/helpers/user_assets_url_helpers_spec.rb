@@ -37,7 +37,7 @@ context "the generated url helpers for UserAssetsController" do
   end
 
   specify "should return new_asset path" do
-    #todo: new_asset_path().should eql("/users/joe/assets/new")
+    #todo: new_user_user_asset_path().should eql("/users/joe/assets/new")
   end
 
   specify "should return asset_attachable path" do
