@@ -24,7 +24,7 @@ describe "a controller spec running in integration mode", :type => :controller d
   it "should render a template" do
     get 'action_with_template'
     response.should be_success
-    response.should have_tag('div', 'This is action_with_template.rhtml')
+    response.should have_tag('div', 'This is action_with_template.html.erb')
   end
 
   it "should choke if the template doesn't exist" do
@@ -40,7 +40,7 @@ describe "a controller spec running in integration mode", :type => :controller d
     it "should render a template" do
       get 'action_with_template'
       response.should be_success
-      response.should have_tag('div', 'This is action_with_template.rhtml')
+      response.should have_tag('div', 'This is action_with_template.html.erb')
     end
     
     describe "with integrate_views turned off" do

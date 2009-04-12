@@ -34,7 +34,7 @@ public
     @assets = @user.assets.find(:all)
 
     respond_to do |format|
-      format.html # index.rhtml
+      format.html # index.html.erb
       format.xml  { render :xml => @assets.to_xml }
     end
   end
@@ -43,7 +43,7 @@ public
   # GET /assets/1.xml
   def show
     respond_to do |format|
-      format.html # show.rhtml
+      format.html # show.html.erb
       format.xml  { render :xml => @asset.to_xml }
     end
   end

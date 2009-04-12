@@ -732,7 +732,7 @@ See Spec::DSL::Behaviour for more on predicate_matchers
 * Applied [#9132] Rakefile spec:doc can fail without preparing database (Patch from Steve Ross)
 * Applied [#9678] Custom runner command line switch, and multi-threaded runner (Patch from Bob Cotton)
 * Applied [#9926] Rakefile - RSPEC_DEPS constant as an Array of Hashes instead of an Array of Arrays (Patch from Scott Taylor)
-* Applied [#9925] Changed ".rhtml" to "template" in REST spec generator (Patch from Scott Taylor)
+* Applied [#9925] Changed ".html.erb" to "template" in REST spec generator (Patch from Scott Taylor)
 * Applied [#9852] Patch for RSpec's Website using Webgen 0.4.2 (Patch from Scott Taylor)
 * Fixed [#6523] Run rspec on rails without a db
 * Fixed [#9295] rake spec should run anything in the spec directory (not just rspec's standard dirs)

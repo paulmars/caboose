@@ -17,9 +17,9 @@ Example:
         create  app/controllers/dog_controller.rb
         create  app/helpers/dog_helper.rb
         create  spec/views/dog/bark_view_spec.rb
-        create  app/views/dog/bark.rhtml
+        create  app/views/dog/bark.html.erb
         create  spec/views/dog/fetch_view_spec.rb
-        create  app/views/dog/fetch.rhtml
+        create  app/views/dog/fetch.html.erb
 
 Modules Example:
     ./script/generate rspec_controller 'pets/dog' bark fetch
@@ -28,6 +28,6 @@ Modules Example:
         create  app/controllers/pets/dog_controller.rb
         create  app/helpers/pets/dog_helper.rb
         create  spec/views/pets/dog/bark_view_spec.rb
-        create  app/views/pets/dog/bark.rhtml
+        create  app/views/pets/dog/bark.html.erb
         create  spec/views/pets/dog/fetch_view_spec.rb
-        create  app/views/pets/dog/fetch.rhtml
+        create  app/views/pets/dog/fetch.html.erb

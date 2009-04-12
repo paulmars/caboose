@@ -21,7 +21,7 @@ context "Requesting /assets using GET" do
     response.should be_success
   end
 
-  specify "should render index.rhtml" do
+  specify "should render index.html.erb" do
     do_get
     response.should render_template('user_assets/index')
   end
@@ -89,7 +89,7 @@ context "Requesting /assets/1 using GET" do
     response.should be_success
   end
   
-  specify "should render show.rhtml" do
+  specify "should render show.html.erb" do
     do_get
     response.should render_template('user_assets/show')
   end
@@ -155,7 +155,7 @@ context "Requesting /assets/new using GET" do
     response.should be_success
   end
   
-  specify "should render new.rhtml" do
+  specify "should render new.html.erb" do
     do_get
     response.should render_template('user_assets/new')
   end
@@ -196,7 +196,7 @@ context "Requesting /assets/1/edit using GET" do
     response.should be_success
   end
   
-  specify "should render edit.rhtml" do
+  specify "should render edit.html.erb" do
     do_get
     response.should render_template('user_assets/edit')
   end

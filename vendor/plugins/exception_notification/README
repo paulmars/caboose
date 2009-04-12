@@ -62,7 +62,7 @@ NOT be considered local), you can simply do, somewhere in your controller:
 By default, the notification email includes four parts: request, session,
 environment, and backtrace (in that order). You can customize how each of those
 sections are rendered by placing a partial named for that part in your
-app/views/exception_notifier directory (e.g., _session.rhtml). Each partial has
+app/views/exception_notifier directory (e.g., _session.html.erb). Each partial has
 access to the following variables:
 
 * @controller: the controller that caused the error

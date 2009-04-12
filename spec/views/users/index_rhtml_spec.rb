@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../../spec_helper'
 
-context "/users/index.rhtml" do
+context "/users/index.html.erb" do
   include UsersHelper
   
   before(:each) do
@@ -11,7 +11,7 @@ context "/users/index.rhtml" do
   end
 
   specify "should render list of users" do
-    render "/users/index.rhtml"
+    render "/users/index.html.erb"
 
   end
 end

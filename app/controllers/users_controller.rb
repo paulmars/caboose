@@ -22,7 +22,7 @@ public
     @users = User.find(:all)
 
     respond_to do |format|
-      format.html # index.rhtml
+      format.html # index.html.erb
       format.xml  { render :xml => @users.to_xml }
     end
   end
@@ -31,7 +31,7 @@ public
   # GET /users/1.xml
   def show
     respond_to do |format|
-      format.html # show.rhtml
+      format.html # show.html.erb
       format.xml  { render :xml => @user.to_xml }
     end
   end

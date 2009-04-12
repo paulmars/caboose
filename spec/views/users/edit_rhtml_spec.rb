@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../../spec_helper'
 
-context "/users/edit.rhtml" do
+context "/users/edit.html.erb" do
   include UsersHelper
   
   before(:each) do
@@ -16,7 +16,7 @@ context "/users/edit.rhtml" do
   end
 
   specify "should render edit form" do
-    render "/users/edit.rhtml"
+    render "/users/edit.html.erb"
     response.should have_tag('form', :attributes =>{:action => user_path(@user), :method => 'post'})
 
   end

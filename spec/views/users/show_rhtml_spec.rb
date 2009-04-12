@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../../spec_helper'
 
-context "/users/show.rhtml" do
+context "/users/show.html.erb" do
   include UsersHelper
   
   before(:each) do
@@ -12,11 +12,11 @@ context "/users/show.rhtml" do
     # that resource_fu creates which are defined in the controller and exposed to
     # views with helper_method().  We set expectations for calls to those helpers
     # but don't bother wiring them up - they will be tested in helper tests.
-    @controller.template.should_receive(:user_user_assets_path).with().and_return('ASSETS_PATH')
+    # @controller.template.should_receive(:user_user_assets_path).with().and_return('ASSETS_PATH')
   end
 
   specify "should render attributes in <p>" do
-    render "/users/show.rhtml"
+    render "/users/show.html.erb"
 
   end
 end

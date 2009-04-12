@@ -29,16 +29,17 @@ context "/assets/index.html.erb" do
 
     @user = mock_model(User)
     assigns[:attachable] = @user
+    assigns[:user] = @user
     
     # Views are tested in isolation here - however there are a number of helpers
     # that resource_fu creates which are defined in the controller and exposed to
     # views with helper_method().  We set expectations for calls to those helpers
     # but don't bother wiring them up - they will be tested in helper tests.
-    @controller.template.should_receive(:asset_path).with(asset_98).exactly(2).times.and_return('ASSET_98_PATH')
-    @controller.template.should_receive(:asset_path).with(asset_99).exactly(2).times.and_return('ASSET_99_PATH')
-    @controller.template.should_receive(:edit_asset_path).with(asset_98).and_return('EDIT_ASSET_98_PATH')
-    @controller.template.should_receive(:edit_asset_path).with(asset_99).times.and_return('EDIT_ASSET_99_PATH')
-    @controller.template.should_receive(:new_user_user_asset_path).with().times.and_return('NEW_ASSET_PATH')
+    @controller.template.should_receive(:user_user_asset_path).with(asset_98).exactly(2).times.and_return('ASSET_98_PATH')
+    @controller.template.should_receive(:user_user_asset_path).with(asset_99).exactly(2).times.and_return('ASSET_99_PATH')
+    @controller.template.should_receive(:edit_user_user_asset_path).with(:asset => asset_98, :user => @user).and_return('EDIT_ASSET_98_PATH')
+    @controller.template.should_receive(:edit_user_user_asset_path).with(:asset => asset_99, :user => @user).times.and_return('EDIT_ASSET_99_PATH')
+    @controller.template.should_receive(:new_user_user_asset_path).with(:user => @user).times.and_return('NEW_ASSET_PATH')
     @controller.template.should_receive(:user_path).with(@user).times.and_return('NEW_ASSET_PATH')
     
   end
