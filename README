@@ -1,3 +1,8 @@
+UPDATE2:
+
+appears to work in Rails 2.3.2
+removed stuff that was creating more confusion that it was worth
+
 UPDATE:
 
 This is a fresher version of the caboose sample app.  
