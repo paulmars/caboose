@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../../spec_helper'
 
 context "/assets/index.html.erb" do
-  include AssetsHelper
+  # include AssetsHelper
   
   before(:each) do
     asset_98 = mock_model(Asset, :to_param => '98', :public_filename => '/foo/bar.jpg')
