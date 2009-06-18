@@ -48,3 +48,22 @@ table th {
   background-color: #ff9;
   margin: 1em 0;
 }
+
+/*clearfix*/
+.clearfix:after {
+clear:both;
+content:".";
+display:block;
+height:0pt;
+line-height:0pt;
+visibility:hidden;
+}
+.clearfix {
+display:inline-block;
+}
+html[xmlns] .clearfix {
+display:block;
+}
+* html .clearfix {
+height:1%;
+}
