@@ -23,17 +23,21 @@ class User < ActiveRecord::Base
   has_many :assets, :as => :attachable
   has_one :password_reset
 
-  validates_uniqueness_of :name, :email, :case_sensitive => false
+  validates_uniqueness_of :name, :email, :permalink, :case_sensitive => false
 
   # Protect internal methods from mass-update.
   attr_accessible :name, :email, :password, :password_confirmation, :time_zone
 
+  def before_create
+    self.permalink ||= self.name.downcase.gsub(/\W/,'')
+  end
+
   def to_param
-    name
+    permalink
   end
 
   def self.find_by_param(*args)
-    find_by_name *args
+    find_by_permalink *args
   end
 
 end
