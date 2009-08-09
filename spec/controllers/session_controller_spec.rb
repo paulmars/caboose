@@ -30,11 +30,6 @@ context "/session POST" do
     post :create, :session => {:email => 'paul@paul.com', :password => 'password'}
   end
 
-  specify 'should login user' do
-    controller.should_receive(:logged_in?).and_return(true)
-    post :create, :session => {}
-  end
-
   specify "should remember me" do
     post :create, :session => {}
     response.cookies["auth_token"].should be_nil
@@ -87,11 +82,6 @@ context "/session POST when invalid" do
   specify 'should authenticate user' do
     User.should_receive(:authenticate).with('user@user.com', 'password').and_return(nil)
     post :create, :session => {:email => 'user@user.com', :password => 'password'}
-  end
-
-  specify 'should login user' do
-    controller.should_receive(:logged_in?).and_return(false)
-    post :create
   end
 
   specify "should not remember me" do

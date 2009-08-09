@@ -29,6 +29,13 @@ class ApplicationController < ActionController::Base
     def self.protected_actions
       [ :edit, :update, :destroy ]
     end
+    
+    def login_user(user)
+      self.current_user = user
+      self.current_user.remember_me
+      cookies[:auth_token] = { :value => self.current_user.remember_token,
+                               :expires => self.current_user.remember_token_expires_at}
+    end
 
   private
 

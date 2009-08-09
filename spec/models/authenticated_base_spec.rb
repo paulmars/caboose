@@ -58,19 +58,9 @@ context "A new user" do
   specify "should create" do
     lambda{ user = create_user ; user.should_not be_new_record }.should change(User,:count).by(1)
   end
-  
-  specify "should require name" do
-    lambda{ u = create_user(:name => nil) ; u.should have_at_least(1).errors_on(:name) }.
-          should_not change(User,:count)
-  end
-  
+    
   specify "should require password" do
     lambda{ u = create_user(:password => nil) ; u.should have_at_least(1).errors_on(:password)}.
-          should_not change(User,:count)
-  end
-
-  specify "should require password confirmation" do
-    lambda{ u = create_user(:password_confirmation => nil) ; u.should have_at_least(1).errors_on(:password_confirmation)}.
           should_not change(User,:count)
   end
 

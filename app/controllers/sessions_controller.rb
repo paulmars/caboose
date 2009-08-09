@@ -10,12 +10,10 @@ class SessionsController < ApplicationController
 
   def create
     if params[:session]
-      self.current_user = User.authenticate(params[:session][:email], params[:session][:password])
+      user = User.authenticate(params[:session][:email], params[:session][:password])
     end
-    if logged_in?
-      self.current_user.remember_me
-      cookies[:auth_token] = { :value => self.current_user.remember_token,
-                               :expires => self.current_user.remember_token_expires_at }
+    if user
+      login_user(user)
       redirect_back_or_default('/')
       flash[:notice] = "Logged in successfully"
     else

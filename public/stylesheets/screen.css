@@ -49,6 +49,10 @@ table th {
   margin: 1em 0;
 }
 
+.loginlinks{
+  float:right;
+}
+
 /*clearfix*/
 .clearfix:after {
 clear:both;
