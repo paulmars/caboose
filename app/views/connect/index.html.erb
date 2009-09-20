@@ -1,10 +1,6 @@
-<%= fb_connect_javascript_tag %>
-<%= init_fb_connect "XFBML"%>
-
 <% if facebook_session and !facebook_session.expired? %>
-  <p>You are logged in as <%=h facebook_session.user.name %></p>
+  <p>You are logged in as <%= fb_name facebook_session.user.uid %></p>
 
-  <%= fb_name facebook_session.user.uid %>
   <%= fb_profile_pic facebook_session.user.uid %>
   <%= fb_logout_link "logout", "/connect/logout" %>
 <% else %>
