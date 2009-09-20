@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20090316050814
+# Schema version: 20090920194401
 #
 # Table name: password_resets
 #
