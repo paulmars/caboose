@@ -26,11 +26,20 @@ class ApplicationController < ActionController::Base
   # filter_parameter_logging :password
 
   before_filter :set_facebook_session
+  before_filter :save_facebook_session
   helper_method :facebook_session
 
   protected
     def self.protected_actions
       [ :edit, :update, :destroy ]
+    end
+    
+    def save_facebook_session
+      if facebook_session and !facebook_session.expired?
+        f = FacebookSession.find_or_initialize_by_uid(facebook_session.uid)
+        f.session_key = facebook_session.session_key
+        f.save
+      end
     end
     
     def login_user(user)

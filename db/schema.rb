@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20090920194401) do
   create_table "facebook_sessions", :force => true do |t|
     t.integer  "user_id"
     t.integer  "uid"
+    t.string   "session_key"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

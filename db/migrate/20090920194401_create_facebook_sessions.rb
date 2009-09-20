@@ -3,6 +3,7 @@ class CreateFacebookSessions < ActiveRecord::Migration
     create_table :facebook_sessions do |t|
       t.integer :user_id
       t.integer :uid
+      t.string :session_key
 
       t.timestamps
     end
