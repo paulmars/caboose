@@ -1,10 +1,16 @@
 <h1>Sign up</h1>
 
-<%= error_messages_for :user %>
+<div class="signup-form clearfix">
+  <%= error_messages_for :user %>
 
-<%= semantic_form_left_column_size(5) %>
+  <%= semantic_form_left_column_size(5) %>
 
-<% semantic_form_for(:user, :url => users_path) do |f| -%>
-  <%= render :partial => 'form', :object => f %>
-  <%= f.submit "Sign up" %>
-<% end -%>
+  <% semantic_form_for(:user, :url => users_path) do |f| -%>
+    <%= render :partial => 'form', :object => f %>
+    <%= f.submit "Sign up" %>
+  <% end -%>
+</div>
+
+<div class="setup-extra-accounts">
+  <%= fb_login_button 'window.location.reload()' %>
+</div>

@@ -73,3 +73,25 @@ display:block;
 * html .clearfix {
 height:1%;
 }
+
+/* signup and login */
+
+.signup-form{
+  width:450px;
+  float:left;
+  margin-bottom:4em;
+}
+.signup-helper{
+  float:right;
+  margin-left:1em;
+  width:280px;
+}
+.signup-helper h2{
+  font-size:1.2em;
+}
+.signup-helper p{
+  margin-bottom:2em;
+}
+.setup-extra-accounts{
+  clear:both;
+}

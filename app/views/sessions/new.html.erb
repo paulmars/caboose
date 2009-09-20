@@ -1,28 +1,5 @@
 <h1>Login</h1>
 
-<style>
-.signup-form{
-  width:450px;
-  float:left;
-  margin-bottom:4em;
-  
-}
-.signup-helper{
-  float:right;
-  margin-left:1em;
-  width:280px;
-}
-.signup-helper h2{
-  font-size:1.2em;
-}
-.signup-helper p{
-  margin-bottom:2em;
-}
-.login-extra-accounts{
-  clear:both;
-}
-</style>
-
 <div class="signup-helper">
   <h2>Need an account?</h2>
   <p><%= link_to "Signup", new_user_path %></p>
@@ -42,7 +19,7 @@
 
 </div>
 
-<div class="login-extra-accounts">
+<div class="setup-extra-accounts">
   <%= fb_login_button 'window.location.reload()' %>
 </div>
 
