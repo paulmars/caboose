@@ -34,6 +34,8 @@ p {
   padding-bottom: 0.5em;
 }
 
+a, a:visited, a:hover { color: #8A6929; }
+
 .fieldWithErrors {
   border-left: 2px solid red;
   padding-left: 2px;
