@@ -4,5 +4,5 @@
   <%= fb_profile_pic facebook_session.user.uid %>
   <%= fb_logout_link "logout", "/connect/logout" %>
 <% else %>
-  <%= fb_login_button 'window.location.reload()' %>
+  <%= fb_login_button 'window.location = "/"' %>
 <% end %>

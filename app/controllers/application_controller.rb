@@ -40,8 +40,8 @@ class ApplicationController < ActionController::Base
         @fsession.session = facebook_session
         @fsession.session_key = facebook_session.session_key
         @fsession.user = current_user if logged_in?
-        login_user @fsession.user
         @fsession.save
+        login_user @fsession.user
       end
     end
     
