@@ -30,7 +30,15 @@ class User < ActiveRecord::Base
 
   def before_create
     self.name = self.email.split('@').first.gsub(/W/,'')
-    self.permalink ||= self.name.downcase.gsub(/\W/,'')
+
+    i = 1
+    perma_stub = self.name.downcase.gsub(/\W/,'')
+    perma_try = perma_stub
+    while User.find_by_permalink(perma_try) != nil
+      i = i + 1
+      perma_try = "#{perma_stub}#{i}"
+    end
+    self.permalink ||= perma_try
   end
 
   def to_param
