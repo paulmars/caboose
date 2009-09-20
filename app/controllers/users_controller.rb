@@ -68,7 +68,7 @@ public
   def update
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        flash[:notice] = 'User was successfully updated.'
+        flash[:notice] = 'Your details are updated.'
         format.html { redirect_to user_url(@user) }
         format.xml  { head :ok }
       else

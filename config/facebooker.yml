@@ -1,0 +1,37 @@
+development:
+ api_key: 867e145de18187286ab7b8d39470679f
+ secret_key: 5198ef700c58171213b30499b7390cc0
+ canvas_page_name: caboose
+ callback_url: http://socialmoth.com:3000
+ pretty_errors: true
+ set_asset_host_to_callback_url: false
+ tunnel:
+     public_host_username: paul
+     public_host: socialmoth.com
+     public_port: 3000
+     local_port: 3000
+     server_alive_interval: 0
+test:
+  api_key:
+  secret_key:
+  canvas_page_name:
+  pretty_errors: true
+  set_asset_host_to_callback_url: true
+  tunnel:
+    public_host_username:
+    public_host:
+    public_port: 4007
+    local_port: 3000
+    server_alive_interval: 0
+production:
+  api_key:
+  secret_key:
+  canvas_page_name:
+  pretty_errors: true
+  set_asset_host_to_callback_url: true
+  tunnel:
+    public_host_username:
+    public_host:
+    public_port: 4007
+    local_port: 3000
+    server_alive_interval: 0
