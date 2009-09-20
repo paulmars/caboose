@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090316050814) do
+ActiveRecord::Schema.define(:version => 20090920194401) do
 
   create_table "assets", :force => true do |t|
     t.string   "filename"
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(:version => 20090316050814) do
     t.string   "thumbnail"
     t.integer  "parent_id"
   end
+
+  create_table "facebook_sessions", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "uid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "facebook_sessions", ["uid"], :name => "index_facebook_sessions_on_uid"
 
   create_table "password_resets", :force => true do |t|
     t.integer  "user_id"

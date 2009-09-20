@@ -1,0 +1,16 @@
+class CreateFacebookSessions < ActiveRecord::Migration
+  def self.up
+    create_table :facebook_sessions do |t|
+      t.integer :user_id
+      t.integer :uid
+
+      t.timestamps
+    end
+    
+    add_index :facebook_sessions, :uid
+  end
+
+  def self.down
+    drop_table :facebook_sessions
+  end
+end
