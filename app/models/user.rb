@@ -22,6 +22,7 @@ class User < ActiveRecord::Base
   include AuthenticatedBase
   has_many :assets, :as => :attachable
   has_one :password_reset
+  has_one :facebook_session
 
   validates_uniqueness_of :email, :permalink, :case_sensitive => false
 
@@ -29,7 +30,7 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :time_zone
 
   def before_create
-    self.name ||= self.email.split('@').first.gsub(/W/,'')
+    self.name ||= self.email.split('@').first.gsub(/[\W|.]/,' ').split(' ').collect{|x| x.capitalize }.join(' ')
 
     i = 1
     perma_stub = self.name.downcase.gsub(/\W/,'')
