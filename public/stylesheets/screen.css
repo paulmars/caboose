@@ -3,7 +3,9 @@
 html {
   background-color: #eee;
 }
-
+#hd{
+  margin-bottom:1em;
+}
 #doc {
   background-color: white;
   padding: 10px 10px 50px 10px;
