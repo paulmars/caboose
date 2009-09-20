@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20090920203649) do
   end
 
   add_index "facebook_sessions", ["uid"], :name => "index_facebook_sessions_on_uid"
+  add_index "facebook_sessions", ["user_id"], :name => "index_facebook_sessions_on_user_id"
 
   create_table "password_resets", :force => true do |t|
     t.integer  "user_id"

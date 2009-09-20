@@ -1,10 +1,12 @@
 <div class="loginlinks">
 <% if super_logged_in? %>
-  <%= link_to h(current_user.name), user_path(current_user) %> | 
   <% if logged_in? %>
-	  <%= link_to "Logout", logout_path %>
-  <% elsif facebook_logged_in? %>
-    <%= fb_logout_link "Logout", "/connect/logout" %>
+    <%= link_to h(current_user.name), user_path(current_user) %> | 
+  <% end %>
+  <% if facebook_logged_in? %>
+    <%= fb_logout_link "Logout", "/logout" %>
+  <% else %>
+    <%= link_to "Logout", "/logout" %>
   <% end %>
 <% else %>
   <%= link_to "Signup", signup_path %> |
