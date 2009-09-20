@@ -54,7 +54,7 @@ public
       if @user.save
         login_user(@user)
         flash[:notice] = 'Welcome.'
-        format.html { redirect_to user_url(@user) }
+        format.html { redirect_back_or_default(user_url(@user)) }
         format.xml  { head :created, :location => user_url(@user) }
       else
         format.html { render :action => "new" }

@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20090316050814
+# Schema version: 20090920194401
 #
 # Table name: users
 #
@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :time_zone
 
   def before_create
-    self.name ||= self.email.split('@').first.gsub(/W/,'')
+    self.name ||= self.email.split('@').first.gsub(/[\W|.]/,' ').split(' ').collect{|x| x.capitalize }.join(' ')
 
     i = 1
     perma_stub = self.name.downcase.gsub(/\W/,'')
