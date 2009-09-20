@@ -39,6 +39,7 @@ class ApplicationController < ActionController::Base
         f = FacebookSession.find_or_initialize_by_uid(facebook_session.uid)
         f.session = facebook_session
         f.session_key = facebook_session.session_key
+        f.user = current_user if logged_in?
         f.save
       end
     end

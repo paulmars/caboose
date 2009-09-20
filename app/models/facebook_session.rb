@@ -8,7 +8,7 @@ class FacebookSession < ActiveRecord::Base
     if self.user.nil?
       u = User.new(:name => self.session.user.name)
       u.save_with_validation false
-      self.user = u
+      self.user ||= u
     end
     puts "woah"
   end

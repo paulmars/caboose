@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090920194401) do
+ActiveRecord::Schema.define(:version => 20090920203649) do
 
   create_table "assets", :force => true do |t|
     t.string   "filename"
@@ -58,5 +58,7 @@ ActiveRecord::Schema.define(:version => 20090920194401) do
     t.integer  "visits_count",                            :default => 0
     t.string   "permalink"
   end
+
+  add_index "users", ["permalink"], :name => "index_users_on_permalink"
 
 end

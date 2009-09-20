@@ -22,6 +22,7 @@ class User < ActiveRecord::Base
   include AuthenticatedBase
   has_many :assets, :as => :attachable
   has_one :password_reset
+  has_one :facebook_session
 
   validates_uniqueness_of :email, :permalink, :case_sensitive => false
 

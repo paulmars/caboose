@@ -9,6 +9,7 @@ class CreateFacebookSessions < ActiveRecord::Migration
     end
     
     add_index :facebook_sessions, :uid
+    add_index :facebook_sessions, :user_id
   end
 
   def self.down

@@ -3,3 +3,13 @@
 <%= link_to 'Assets', user_user_assets_path(@user) %> |
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+
+<!--
+connect to facebook
+-->
+ 
+<div style="display:none">
+<% if @user.facebook_session.nil? %>
+  <%= fb_login_button 'window.location.reload()' %>
+<% end %>
+</div>
