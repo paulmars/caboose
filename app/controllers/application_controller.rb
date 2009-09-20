@@ -37,6 +37,7 @@ class ApplicationController < ActionController::Base
     def save_facebook_session
       if facebook_session and !facebook_session.expired?
         f = FacebookSession.find_or_initialize_by_uid(facebook_session.uid)
+        f.session = facebook_session
         f.session_key = facebook_session.session_key
         f.save
       end
