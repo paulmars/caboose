@@ -23,7 +23,7 @@ class FacebookSession < ActiveRecord::Base
       u.save_with_validation false
       self.user ||= u
     end
-    puts "woah"
+    true
   end
   
 end

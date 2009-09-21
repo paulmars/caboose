@@ -38,10 +38,9 @@ class ApplicationController < ActionController::Base
       if facebook_session and !facebook_session.expired?
         @fsession = FacebookSession.find_or_initialize_by_uid(facebook_session.uid)
         @fsession.session = facebook_session
-        @fsession.session_key = facebook_session.session_key
-        @fsession.user = current_user if logged_in?
+        @fsession.user ||= current_user if logged_in?
         @fsession.save
-        login_user @fsession.user
+        login_user @fsession.user if !logged_in?
       end
     end
     
